@@ -310,6 +310,179 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/16/Java运算符小记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ucm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Not A Big Deal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/16/Java运算符小记/" itemprop="url">
+                  Java运算符小记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-16T00:52:00-04:00">
+                2017-04-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/16/Java运算符小记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/16/Java运算符小记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Java运算符记录本，以此记下容易出错的地方。</p>
+<p>来自于 <em>Thinking in Java</em></p>
+<h3 id="Relational-Operators"><a href="#Relational-Operators" class="headerlink" title="Relational Operators"></a>Relational Operators</h3><p>The relational operators == and != also work with all objects. Here is an example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Equivalence&#123;</div><div class="line">  public static void main (String[] args)&#123;</div><div class="line">    Integer n1 = new Integer(47);</div><div class="line">    Integer n2 = new Integer(47);</div><div class="line">    System.out.println(n1 == n2);</div><div class="line">    System.out.println(n1 != n2);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output:</div><div class="line">false</div><div class="line">true</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>The statement System.out.println(n1==n2) will print the result of the boolean comparison within it. While the <em>contents</em> of the objects are the same, the references are not the same. The operators == and != compare object references, so the output is actually “false” and then “true”.</p>
+<p>What if we want to compare the actual contents of an object for equivalences? We must use the special method <em>equals()</em> that exits for all objects (not primitives, which work fine with == and !=). Example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class EqualsMethod&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    Integer n1 = new Integer(47);</div><div class="line">    Integer n2 = new Integer(47);</div><div class="line">    System.out.printly(n1.equals(n2));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: true */</div></pre></td></tr></table></figure>
+<p>But default equals() does not compare contents. Here is an example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Value&#123;</div><div class="line">  int i;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class EqualsMethod2&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    Value v1 = new Value();</div><div class="line">    Value v2 = new Value();</div><div class="line">    v1.i = v2.i = 100;</div><div class="line">    System.out.println(v1.equals(v2));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">/* Output: false */</div></pre></td></tr></table></figure>
+<p>The result is false. This is because the default behavior of equals() is to compare references. So unless you override equals() in your new class you won’t get the desired behavior. Most of the Java library classes implement <em>equals()</em> so that it compares the contents of objects instead of their references.</p>
+<h3 id="Bitwise-Operators"><a href="#Bitwise-Operators" class="headerlink" title="Bitwise Operators"></a>Bitwise Operators</h3><p>The bitwise operators allow you to manipulate individual bits in an integral primitive data type. Bitwise operators perform Boolean algebra on the corresponding bits in the two arguments to produce the result.</p>
+<p>The bitwise operators come from C’s low-level orientation, where you often manipulate hardware directly and must set the bits in hardware registers. Java was originally designed to be embedded in TV set-top boxes, so this low-level orientation still made sense.</p>
+<p>The bitwise AND operator <strong>(&amp;)</strong> produces a one in the output bit if both input bits are one; otherwise, it produces a zero.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 129;</div><div class="line">    int b = 128;</div><div class="line">    System.out.println(a&amp;b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: 128;</div><div class="line">Integer.toBinaryString(a)   is 10000001;</div><div class="line">Integer.toBinaryString(b)   is 10000000;</div><div class="line">Integer.toBinaryString(a&amp;b) is 10000000; */</div></pre></td></tr></table></figure>
+<p>The bitwise OR operator <strong>(|)</strong> produces a one in the output bit if either input is a one and produces a zero only if both input bits are zero.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 129;</div><div class="line">    int b = 128;</div><div class="line">    System.out.println(a|b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: 129;</div><div class="line">Integer.toBinaryString(a)   is 10000001;</div><div class="line">Integer.toBinaryString(b)   is 10000000;</div><div class="line">Integer.toBinaryString(a|b) is 10000001; */</div></pre></td></tr></table></figure>
+<p>The bitwise EXCLUSIVE OR, or XOR <strong>(^)</strong> , produces a one in the output bit if one or the other input bit is a one, but not both, which means if the bits are same, producing 0, if the bits are different, producing 1.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 15;</div><div class="line">    int b = 2;</div><div class="line">    System.out.println(a^b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: 13;</div><div class="line">Integer.toBinaryString(a)   is 1111;</div><div class="line">Integer.toBinaryString(b)   is 0010;</div><div class="line">Integer.toBinaryString(a^b) is 1101; */</div></pre></td></tr></table></figure>
+<p>The bitwise NOT, also called the <em>ones complement</em> operator, <strong>(~)</strong>, is a unary operator; it takes only one argument. (All other bitwise operators are binary operators.) Bitwise NOT produces the opposite of the input bit - a one if the input bit is zero, a zero if the input bit is one.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 2;</div><div class="line">    System.out.println(~a);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">/* Output: -3;</div><div class="line">Integer.toBinaryString(a)  is 10;</div><div class="line">Integer.toBinaryString(~a) is 1111 1111 1111 1111 1111 1111 1111 1101; */</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/15/A-Review-of-Sugar-Factory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -687,7 +860,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -698,7 +871,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -709,7 +882,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
