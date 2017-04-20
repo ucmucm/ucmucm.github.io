@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Algorithm,Sort," />
 
 
 
@@ -87,12 +87,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Not A Big Deal">
-<meta property="og:url" content="ucmmm.cc/index.html">
+<meta name="description" content="先定义一些排序算法通用的API 123456789101112131415161718192021222324252627282930313233343536public class Sort&amp;#123;  public static void sort(Comparable[] a)&amp;#123;    // 新建排序算法对象    Quick quick = new Quick();    qu">
+<meta name="keywords" content="Algorithm,Sort">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java排序算法总结">
+<meta property="og:url" content="ucmmm.cc/2017/04/20/Java排序算法总结/index.html">
 <meta property="og:site_name" content="Not A Big Deal">
+<meta property="og:description" content="先定义一些排序算法通用的API 123456789101112131415161718192021222324252627282930313233343536public class Sort&amp;#123;  public static void sort(Comparable[] a)&amp;#123;    // 新建排序算法对象    Quick quick = new Quick();    qu">
+<meta property="og:updated_time" content="2017-04-20T17:08:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Not A Big Deal">
+<meta name="twitter:title" content="Java排序算法总结">
+<meta name="twitter:description" content="先定义一些排序算法通用的API 123456789101112131415161718192021222324252627282930313233343536public class Sort&amp;#123;  public static void sort(Comparable[] a)&amp;#123;    // 新建排序算法对象    Quick quick = new Quick();    qu">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="ucmmm.cc/"/>
+  <link rel="canonical" href="ucmmm.cc/2017/04/20/Java排序算法总结/"/>
 
 
 
 
 
-  <title> Not A Big Deal </title>
+  <title> Java排序算法总结 | Not A Big Deal </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -160,9 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -299,9 +302,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -331,10 +334,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/04/20/Java排序算法总结/" itemprop="url">
-                  Java排序算法总结
-                </a>
+                Java排序算法总结
               
             
           </h1>
@@ -419,9 +419,7 @@
       
 
       
-        
-          
-            <p>先定义一些排序算法通用的API</p>
+        <p>先定义一些排序算法通用的API</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">public class Sort&#123;</div><div class="line">  public static void sort(Comparable[] a)&#123;</div><div class="line">    // 新建排序算法对象</div><div class="line">    Quick quick = new Quick();</div><div class="line">    quick.sort(a);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  protected static boolean less(Comparable v, Comparable w)&#123;</div><div class="line">    return (v.compareTo(w) &lt; 0);</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  protected static void exc (Comparable[] a, int i, int j)&#123;</div><div class="line">    Comparable t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  protected static void show(Comparable[] a)&#123;</div><div class="line">    for (int i =0; i&lt;a.length; i++)</div><div class="line">    	System.out.print(a[i] + &quot; &quot;);</div><div class="line">    System.out.println();</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  protected static boolean isSorted(Comparable[] a)&#123;</div><div class="line">    for (int i=0; i&lt;a.length; i++)</div><div class="line">    	if (less(a[i], a[i+1])) return false;</div><div class="line">    return true;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    Comparable[] a = &#123;&apos;A&apos;,&apos;R&apos;,&apos;E&apos;,&apos;U&apos;,&apos;K&apos;,&apos;I&apos;,&apos;D&apos;,&apos;D&apos;,&apos;I&apos;,&apos;N&apos;,&apos;G&apos;,&apos;M&apos;,&apos;E&apos;&#125;;</div><div class="line">    sort(a);</div><div class="line">    assert isSorted(a);</div><div class="line">    show(a);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>插入排序 / Insertion Sort</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class Insertion extends Sort&#123;</div><div class="line">  public static void sort(Comparable[] a)&#123;</div><div class="line">    int N = a.length;</div><div class="line">    for (int i=0; i&lt;N; i++)&#123;</div><div class="line">      for (int j = i; j&gt;0 &amp;&amp; less(a[j],a[j-1]); j--)</div><div class="line">      	exc(a,j,j-1);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -441,541 +439,74 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">public class StackSort&#123;</div><div class="line">  </div><div class="line">  private Comparable[] a;</div><div class="line">  private int N = a.length;</div><div class="line">  </div><div class="line">  public void StackSort(int max)&#123;</div><div class="line">    a = new Comparable[max];</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  public void sort(Comparable[] a)&#123;</div><div class="line">    for (int k = a.length/2; k&gt;=1; k--)</div><div class="line">    	sink(k);</div><div class="line">    while (N&gt;1)&#123;</div><div class="line">      exc(N--,1);</div><div class="line">      sink(N);</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  public boolean less(int i, int j)&#123;</div><div class="line">    return a[i].compareTo(j) &lt; 0;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  piublic void sink(int k)&#123;</div><div class="line">    while (2*k &lt;= a.length)&#123;</div><div class="line">      int j = 2*k;</div><div class="line">      if (less(j,j+1)) j++;</div><div class="line">      if (!less(k,j)) break;</div><div class="line">      exc(k,j);</div><div class="line">      k = j;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  public void exc(int i, int j)&#123;</div><div class="line">    Comparable t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>就这么多吧。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <div>
+      
+        
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ucm">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Not A Big Deal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/" itemprop="url">
-                  Difference between Constructor and void method in Java
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-17T18:55:00-04:00">
-                2017-04-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           
-
+            <a href="/tags/Sort/" rel="tag"># Sort</a>
           
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/17/Difference-between-Constructor-and-void-method-in-Java/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          
-            <blockquote>
-<p>The constructor is an unusual type of method because it has no return value. This is distinctly different from a void return value, in which the method returns nothing but you still have option to make it return something else. Constructors return nothing and you don’t have an option (the new expression does return a reference to the newly created object, but the constructor itself has no return value).</p>
-</blockquote>
-<p>构造器是一种特殊的Method，因为它没有返回值，这个跟void空返回值有很大的区别。因为即使void method本身不会返回什么，你依旧可以让它返回一些东西。构造器不会返回任何东西，你也没有任何选择让它返回什么东西。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
       
 
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/16/Java运算符小记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ucm">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Not A Big Deal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-              
-                
-                <a class="post-title-link" href="/2017/04/16/Java运算符小记/" itemprop="url">
-                  Java运算符小记
-                </a>
-              
+              <a href="/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/" rel="prev" title="Difference between Constructor and void method in Java">
+                Difference between Constructor and void method in Java <i class="fa fa-chevron-right"></i>
+              </a>
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-16T00:52:00-04:00">
-                2017-04-16
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/16/Java运算符小记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/16/Java运算符小记/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Java运算符记录本，以此记下容易出错的地方。</p>
-<p>来自于 <em>Thinking in Java</em></p>
-<h3 id="Relational-Operators"><a href="#Relational-Operators" class="headerlink" title="Relational Operators"></a>Relational Operators</h3><p>The relational operators == and != also work with all objects. Here is an example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public class Equivalence&#123;</div><div class="line">  public static void main (String[] args)&#123;</div><div class="line">    Integer n1 = new Integer(47);</div><div class="line">    Integer n2 = new Integer(47);</div><div class="line">    System.out.println(n1 == n2);</div><div class="line">    System.out.println(n1 != n2);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output:</div><div class="line">false</div><div class="line">true</div><div class="line">*/</div></pre></td></tr></table></figure>
-<p>The statement System.out.println(n1==n2) will print the result of the boolean comparison within it. While the <em>contents</em> of the objects are the same, the references are not the same. The operators == and != compare object references, so the output is actually “false” and then “true”.</p>
-<p>What if we want to compare the actual contents of an object for equivalences? We must use the special method <em>equals()</em> that exits for all objects (not primitives, which work fine with == and !=). Example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">public class EqualsMethod&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    Integer n1 = new Integer(47);</div><div class="line">    Integer n2 = new Integer(47);</div><div class="line">    System.out.printly(n1.equals(n2));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: true */</div></pre></td></tr></table></figure>
-<p>But default equals() does not compare contents. Here is an example:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Value&#123;</div><div class="line">  int i;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class EqualsMethod2&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    Value v1 = new Value();</div><div class="line">    Value v2 = new Value();</div><div class="line">    v1.i = v2.i = 100;</div><div class="line">    System.out.println(v1.equals(v2));</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">/* Output: false */</div></pre></td></tr></table></figure>
-<p>The result is false. This is because the default behavior of equals() is to compare references. So unless you override equals() in your new class you won’t get the desired behavior. Most of the Java library classes implement <em>equals()</em> so that it compares the contents of objects instead of their references.</p>
-<h3 id="Bitwise-Operators"><a href="#Bitwise-Operators" class="headerlink" title="Bitwise Operators"></a>Bitwise Operators</h3><p>The bitwise operators allow you to manipulate individual bits in an integral primitive data type. Bitwise operators perform Boolean algebra on the corresponding bits in the two arguments to produce the result.</p>
-<p>The bitwise operators come from C’s low-level orientation, where you often manipulate hardware directly and must set the bits in hardware registers. Java was originally designed to be embedded in TV set-top boxes, so this low-level orientation still made sense.</p>
-<p>The bitwise AND operator <strong>(&amp;)</strong> produces a one in the output bit if both input bits are one; otherwise, it produces a zero.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 129;</div><div class="line">    int b = 128;</div><div class="line">    System.out.println(a&amp;b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: 128;</div><div class="line">Integer.toBinaryString(a)   is 10000001;</div><div class="line">Integer.toBinaryString(b)   is 10000000;</div><div class="line">Integer.toBinaryString(a&amp;b) is 10000000; */</div></pre></td></tr></table></figure>
-<p>The bitwise OR operator <strong>(|)</strong> produces a one in the output bit if either input is a one and produces a zero only if both input bits are zero.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 129;</div><div class="line">    int b = 128;</div><div class="line">    System.out.println(a|b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: 129;</div><div class="line">Integer.toBinaryString(a)   is 10000001;</div><div class="line">Integer.toBinaryString(b)   is 10000000;</div><div class="line">Integer.toBinaryString(a|b) is 10000001; */</div></pre></td></tr></table></figure>
-<p>The bitwise EXCLUSIVE OR, or XOR <strong>(^)</strong> , produces a one in the output bit if one or the other input bit is a one, but not both, which means if the bits are same, producing 0, if the bits are different, producing 1.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 15;</div><div class="line">    int b = 2;</div><div class="line">    System.out.println(a^b);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/* Output: 13;</div><div class="line">Integer.toBinaryString(a)   is 1111;</div><div class="line">Integer.toBinaryString(b)   is 0010;</div><div class="line">Integer.toBinaryString(a^b) is 1101; */</div></pre></td></tr></table></figure>
-<p>The bitwise NOT, also called the <em>ones complement</em> operator, <strong>(~)</strong>, is a unary operator; it takes only one argument. (All other bitwise operators are binary operators.) Bitwise NOT produces the opposite of the input bit - a one if the input bit is zero, a zero if the input bit is one.</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">// Example</div><div class="line">class Bitwise&#123;</div><div class="line">  public static void main(String[] args)&#123;</div><div class="line">    int a = 2;</div><div class="line">    System.out.println(~a);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line">/* Output: -3;</div><div class="line">Integer.toBinaryString(a)  is 10;</div><div class="line">Integer.toBinaryString(~a) is 1111 1111 1111 1111 1111 1111 1111 1101; */</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/15/A-Review-of-Sugar-Factory/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ucm">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Not A Big Deal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/15/A-Review-of-Sugar-Factory/" itemprop="url">
-                  A Review of Sugar Factory
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-15T01:28:43-04:00">
-                2017-04-15
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index">
-                    <span itemprop="name">Diary</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/15/A-Review-of-Sugar-Factory/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/15/A-Review-of-Sugar-Factory/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>无比气愤，好端端一顿饭吃成这样。</p>
-<p>故写此评论，发在了Yelp上，同时在此博客上记录下来。</p>
-<blockquote>
-<p>It was a really HORRIBLE EXPERIENCE today. I would never be here again and never recommend my friends this restaurant ever.</p>
-<p>The service here is the WORST, WORST, WORST I have ever been through.</p>
-<p>When my girl friend and I sat down, the waiter (Just call her “Ellen”) came to us and said what drinks would we want. After we ordered the drinks, she just walked away without saying anything. We haven’t even ordered food. So we told her that we wanted to order food. After then, we wanted some alcohol, so we raised our hand and wanted to order more. She saw it, and said impatiently:</p>
-<p>“Do not do that again.”</p>
-<p>WHAT ARE YOU F**KING KIDDING ME??? We were customers and we wanted to order some drinks, and this was what a waiter said to us?? </p>
-<p>Okay, then LET’S SEE WHAT THEIR MANAGERS DID. I went and told their woman manager that what the waiter said to us. She said she would talk to us later. 10 minutes later, NOTHING HAPPENED. I went and asked her again that we needed an explanation and sorry. She said okay she would deal with this. Of course, NOTHING HAPPENED EITHER. Then I went for her third times, finally another one came and asked us what happened, then she seemed to talk to “Ellen”. As expected, NOTHING HAPPENED. Until we were going to leave, a man who seems to be another manger, called C. K., said a lot high-sounding words without any sincerity. THOSE WORDS WERE ALL BULLSHIT. We DIDN’T HEAR SORRY from “Ellen” and DIDN’T FEEL ANY APOLOGIES from their managers. They just wanted us leave.</p>
-<p>They didn’t even care about this. They have too many customers, so they can make too much money from customers. They don’t even care what happened to the customers. She was  rude to us, so why should we show respect to her? The managers didn’t care about our customers, so WHY SHOULD WE CUSTOMERS BE DESPISED EVEN WE GIVING MONEY TO THEM??</p>
-<p>I should read the reviews from the Yelp before I went there. Someone also mentioned that how rude the waiters were. More customers went there, the feelings and reviews of customers would become much cheaper. </p>
-<p>Just look at their attitudes to customers. They might be proud of this attitude because they beat the customers again.</p>
-</blockquote>
-<p>真他妈气，一天心情都不好。</p>
-
-          
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -983,6 +514,12 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div id="hypercomments_widget"></div>
+    
+  </div>
+
 
         </div>
         
@@ -1174,6 +711,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
@@ -1197,6 +738,8 @@
 
 		_hcwp.push({widget:"Bloggerstream", widget_id: 89662, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
+		
+		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/04/20/Java排序算法总结/"});
 		
 
 		(function() {
