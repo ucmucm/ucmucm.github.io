@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Constructor,Method," />
+  <meta name="keywords" content="Static," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="The constructor is an unusual type of method because it has no return value. This is distinctly different from a void return value, in which the method returns nothing but you still have option to ma">
-<meta name="keywords" content="Constructor,Method">
+<meta name="description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
+<meta name="keywords" content="Static">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Difference between Constructor and void method in Java">
-<meta property="og:url" content="ucmmm.cc/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/index.html">
+<meta property="og:title" content="Static静态方法与面向对象">
+<meta property="og:url" content="ucmmm.cc/2017/04/20/Static静态方法与面向对象/index.html">
 <meta property="og:site_name" content="Not A Big Deal">
-<meta property="og:description" content="The constructor is an unusual type of method because it has no return value. This is distinctly different from a void return value, in which the method returns nothing but you still have option to ma">
-<meta property="og:updated_time" content="2017-04-17T23:38:41.000Z">
+<meta property="og:description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
+<meta property="og:updated_time" content="2017-04-20T22:46:50.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Difference between Constructor and void method in Java">
-<meta name="twitter:description" content="The constructor is an unusual type of method because it has no return value. This is distinctly different from a void return value, in which the method returns nothing but you still have option to ma">
+<meta name="twitter:title" content="Static静态方法与面向对象">
+<meta name="twitter:description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="ucmmm.cc/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/"/>
+  <link rel="canonical" href="ucmmm.cc/2017/04/20/Static静态方法与面向对象/"/>
 
 
 
 
 
-  <title> Difference between Constructor and void method in Java | Not A Big Deal </title>
+  <title> Static静态方法与面向对象 | Not A Big Deal </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -313,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/20/Static静态方法与面向对象/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ucm">
@@ -334,7 +334,7 @@
             
             
               
-                Difference between Constructor and void method in Java
+                Static静态方法与面向对象
               
             
           </h1>
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-17T18:55:00-04:00">
-                2017-04-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T18:46:00-04:00">
+                2017-04-20
               </time>
             
 
@@ -391,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/17/Difference-between-Constructor-and-void-method-in-Java/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/17/Difference-between-Constructor-and-void-method-in-Java/" itemprop="commentsCount"></span>
+                <a href="/2017/04/20/Static静态方法与面向对象/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/20/Static静态方法与面向对象/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -420,9 +420,11 @@
 
       
         <blockquote>
-<p>The constructor is an unusual type of method because it has no return value. This is distinctly different from a void return value, in which the method returns nothing but you still have option to make it return something else. Constructors return nothing and you don’t have an option (the new expression does return a reference to the newly created object, but the constructor itself has no return value).</p>
+<p>With the <strong>this</strong> keyword in mind, you can more fully understand what it means to make amethod <strong>static</strong>. It means that there is no <strong>this</strong> for that particular method. You cannot call non-<strong>static</strong> methods from inside <strong>static</strong> methods</p>
+<p>[^The one case in which this is possible occurs if you pass a reference to an object into the static method (the static method could also create its own object). Then, via the reference (which is now effectively this), you can call non-static methods and access non-static fields. But typically, if you want to do something like this, you’ll just make an ordinary, non-static method.]: </p>
+<p> (although the reverse is possible), and you can call a <strong>static</strong> method for the class itself, without any object. In fact, that’s primarily what a <strong>static</strong> method is for. It’s as if you’re creating the equivalent of a global method. However,global methods are not permitted in Java, and putting the <strong>static</strong> method inside a class allowsit access to other <strong>static</strong> methods and to <strong>static</strong> fields.</p>
+<p>Some people argue that <strong>static</strong> methods are not object-oriented, since they do have the semantics of a global method; with a <strong>static</strong> method, you don’t send a message to an object, since there’s no <strong>this</strong>. This is probably a fair argument, and if you find yourself using a lot of <strong>static</strong> methods, you should probably rethink your strategy. However, <strong>statics</strong> are pragmatic,and there are times when you genuinely need them, so whether or not they are “proper OOP” should be left to the theoreticians.</p>
 </blockquote>
-<p>构造器是一种特殊的Method，因为它没有返回值，这个跟void空返回值有很大的区别。因为即使void method本身不会返回什么，你依旧可以让它返回一些东西。构造器不会返回任何东西，你也没有任何选择让它返回什么东西。</p>
 
       
     </div>
@@ -452,9 +454,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Constructor/" rel="tag"># Constructor</a>
-          
-            <a href="/tags/Method/" rel="tag"># Method</a>
+            <a href="/tags/Static/" rel="tag"># Static</a>
           
         </div>
       
@@ -467,18 +467,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/20/Java排序算法总结/" rel="next" title="Java排序算法总结">
-                <i class="fa fa-chevron-left"></i> Java排序算法总结
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/16/Java运算符小记/" rel="prev" title="Java运算符小记">
-                Java运算符小记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/20/Java排序算法总结/" rel="prev" title="Java排序算法总结">
+                Java排序算法总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -728,7 +724,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 89662, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/04/17/Difference-between-Constructor-and-void-method-in-Java/"});
+		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/04/20/Static静态方法与面向对象/"});
 		
 
 		(function() {
