@@ -310,6 +310,171 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/23/对象的创建过程笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ucm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Not A Big Deal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/23/对象的创建过程笔记/" itemprop="url">
+                  对象的创建过程笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-23T20:00:00-04:00">
+                2017-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/23/对象的创建过程笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/23/对象的创建过程笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对象的创建过程，请考虑一个名为Dog的类：</p>
+<p>(1) 类型为Dog的一个对象首次创建时，或者Dog类的static方法／static字段首次访问时，Java解释器必须找到Dog.class（在事先设好的类路径里搜索）。</p>
+<p>(2) 找到Dog.class后（它会创建一个Class对象），它的所有static初始化模块都会运行。因此，static初始化仅发生一次——在Class对象首次载入的时候。</p>
+<p>(3) 创建一个new Dog()时，Dog对象的构建进程首先会在内存堆（Heap）里为一个Dog对象分配足够多的存储空间。</p>
+<p>(4) 这种存储空间会清为零，将Dog中的所有基本类型设为它们的默认值（零用于数字，以及boolean和char的等价设定）。</p>
+<p>(5) 进行字段定义时发生的所有初始化都会执行。</p>
+<p>(6) 执行构建器。</p>
+<p>一个类不允许被设置成private或者protected，所以只有两种选择来访问类：包或者public。如果你不想让任何人访问那个类，你可以令所有的构建器private，因此，在class内置一个static方法，可以防止除了你以外的人创建一个此类的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//: access/Lunch.java</div><div class="line">// Demonstrates class access specifiers. Make a class</div><div class="line">// effectively private with private constructors:</div><div class="line">class Soup1 &#123;</div><div class="line">  private Soup1() &#123;&#125;</div><div class="line">  // (1) Allow creation via static method:</div><div class="line">  public static Soup1 makeSoup() &#123;</div><div class="line">    return new Soup1();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Soup2 &#123;</div><div class="line">  private Soup2() &#123;&#125;</div><div class="line">  // (2) Create a static object and return a reference</div><div class="line">  // upon request.(The &quot;Singleton&quot; pattern):</div><div class="line">  private static Soup2 ps1 = new Soup2();</div><div class="line">  public static Soup2 access() &#123;</div><div class="line">return ps1; &#125;</div><div class="line">  public void f() &#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Only one public class allowed per file:</div><div class="line">public class Lunch &#123;</div><div class="line">  void testPrivate() &#123;</div><div class="line">    // Can’t do this! Private constructor:</div><div class="line">    //! Soup1 soup = new Soup1();</div><div class="line">  &#125;</div><div class="line">  void testStatic() &#123;</div><div class="line">    Soup1 soup = Soup1.makeSoup();</div><div class="line">  &#125;</div><div class="line">  void testSingleton() &#123;</div><div class="line">    Soup2.access().f();</div><div class="line">  &#125;</div><div class="line">&#125; ///:~</div></pre></td></tr></table></figure>
+<p>Soup1我们可创建一个static方法，再通过它创建一个新的Soup，然后返回指向它的一个句柄。如果想在返回之前对Soup进行一些额外的操作，或者想了解准备创建多少个Soup对象（可能是为了限制它们的个数），这种方案无疑是特别有用的。</p>
+<p>Soup2是采用“设计方案”（Design Pattern）技术。通常方案叫作“独子”（Singleton），因为它仅允许创建一个对象。类Soup的对象被创建成Soup的一个static private成员，所以有一个而且只能有一个。除非通过public方法access()，否则根本无法访问它。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/23/轮盘赌博的不严谨分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1375,7 +1540,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
