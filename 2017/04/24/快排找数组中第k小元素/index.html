@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Static," />
+  <meta name="keywords" content="Sort," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
-<meta name="keywords" content="Static">
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334public kth&amp;#123;  public static Comparable select(Comparable[] a, int k)&amp;#123;    StdRandom.shuffer(a);    int lo = 0;    int hi = a.length-1">
+<meta name="keywords" content="Sort">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Static静态方法与面向对象">
-<meta property="og:url" content="ucmmm.cc/2017/04/20/Static静态方法与面向对象/index.html">
+<meta property="og:title" content="快排找数组中第k小元素">
+<meta property="og:url" content="ucmmm.cc/2017/04/24/快排找数组中第k小元素/index.html">
 <meta property="og:site_name" content="Not A Big Deal">
-<meta property="og:description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
-<meta property="og:updated_time" content="2017-04-20T22:46:50.000Z">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334public kth&amp;#123;  public static Comparable select(Comparable[] a, int k)&amp;#123;    StdRandom.shuffer(a);    int lo = 0;    int hi = a.length-1">
+<meta property="og:updated_time" content="2017-04-24T21:07:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Static静态方法与面向对象">
-<meta name="twitter:description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
+<meta name="twitter:title" content="快排找数组中第k小元素">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334public kth&amp;#123;  public static Comparable select(Comparable[] a, int k)&amp;#123;    StdRandom.shuffer(a);    int lo = 0;    int hi = a.length-1">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="ucmmm.cc/2017/04/20/Static静态方法与面向对象/"/>
+  <link rel="canonical" href="ucmmm.cc/2017/04/24/快排找数组中第k小元素/"/>
 
 
 
 
 
-  <title> Static静态方法与面向对象 | Not A Big Deal </title>
+  <title> 快排找数组中第k小元素 | Not A Big Deal </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -313,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/20/Static静态方法与面向对象/">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/24/快排找数组中第k小元素/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ucm">
@@ -334,7 +334,7 @@
             
             
               
-                Static静态方法与面向对象
+                快排找数组中第k小元素
               
             
           </h1>
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-20T18:46:00-04:00">
-                2017-04-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T17:06:00-04:00">
+                2017-04-24
               </time>
             
 
@@ -391,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/20/Static静态方法与面向对象/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/20/Static静态方法与面向对象/" itemprop="commentsCount"></span>
+                <a href="/2017/04/24/快排找数组中第k小元素/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/24/快排找数组中第k小元素/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -419,13 +419,7 @@
       
 
       
-        <blockquote>
-<p>With the <strong>this</strong> keyword in mind, you can more fully understand what it means to make amethod <strong>static</strong>. It means that there is no <strong>this</strong> for that particular method. You cannot call non-<strong>static</strong> methods from inside <strong>static</strong> methods</p>
-<p>[^The one case in which this is possible occurs if you pass a reference to an object into the static method (the static method could also create its own object). Then, via the reference (which is now effectively this), you can call non-static methods and access non-static fields. But typically, if you want to do something like this, you’ll just make an ordinary, non-static method.]: </p>
-<p> (although the reverse is possible), and you can call a <strong>static</strong> method for the class itself, without any object. In fact, that’s primarily what a <strong>static</strong> method is for. It’s as if you’re creating the equivalent of a global method. However,global methods are not permitted in Java, and putting the <strong>static</strong> method inside a class allowsit access to other <strong>static</strong> methods and to <strong>static</strong> fields.</p>
-<p>Some people argue that <strong>static</strong> methods are not object-oriented, since they do have the semantics of a global method; with a <strong>static</strong> method, you don’t send a message to an object, since there’s no <strong>this</strong>. This is probably a fair argument, and if you find yourself using a lot of <strong>static</strong> methods, you should probably rethink your strategy. However, <strong>statics</strong> are pragmatic,and there are times when you genuinely need them, so whether or not they are “proper OOP” should be left to the theoreticians.</p>
-</blockquote>
-
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">public kth&#123;</div><div class="line">  public static Comparable select(Comparable[] a, int k)&#123;</div><div class="line">    StdRandom.shuffer(a);</div><div class="line">    int lo = 0;</div><div class="line">    int hi = a.length-1;</div><div class="line">    while (hi &gt; lo)&#123;</div><div class="line">      int j = partition(a,lo,hi);</div><div class="line">      if (j == k) return a[k];</div><div class="line">      else if (j &gt; k) hi = j - 1;</div><div class="line">      else lo = j + 1;</div><div class="line">    &#125;</div><div class="line">    return a[k];</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  int patition(Comparable[] a, int lo, int hi)&#123;</div><div class="line">    int i = lo;</div><div class="line">    int j = hi;</div><div class="line">    Comparable v = a[lo];</div><div class="line">    while (true)&#123;</div><div class="line">      while (a[++i] &lt; v) if (i == hi) break;</div><div class="line">      while (a[--j] &gt; v) if (j == lo) break;</div><div class="line">      if (i &gt;= j) break;</div><div class="line">      exc(a,i,j);</div><div class="line">    &#125;</div><div class="line">    exc(a,lo,j);</div><div class="line">    return j;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  void exc (Comparable[] a, int i, int j)&#123;</div><div class="line">    Comparable t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -454,7 +448,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Static/" rel="tag"># Static</a>
+            <a href="/tags/Sort/" rel="tag"># Sort</a>
           
         </div>
       
@@ -467,18 +461,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/23/轮盘赌博的不严谨分析/" rel="next" title="轮盘赌博的不严谨分析">
-                <i class="fa fa-chevron-left"></i> 轮盘赌博的不严谨分析
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/20/Java排序算法总结/" rel="prev" title="Java排序算法总结">
-                Java排序算法总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/24/final和static问答笔记/" rel="prev" title="final和static问答笔记">
+                final和static问答笔记 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -757,7 +747,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 89662, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/04/20/Static静态方法与面向对象/"});
+		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/04/24/快排找数组中第k小元素/"});
 		
 
 		(function() {
