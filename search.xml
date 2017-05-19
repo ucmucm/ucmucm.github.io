@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Couresa Machine Learning Notes]]></title>
+      <url>%2F2017%2F05%2F19%2FMachine%20Learning%2F</url>
+      <content type="text"><![CDATA[Machine LearningSupervised LearningIn supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output. Regression problemwe are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function. classification problemwe are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories. Unsupervised LearningUnsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don’t necessarily know the effect of the variables. We can derive this structure by clustering the data based on relationships among the variables in the data. With unsupervised learning there is no feedback based on the prediction result]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[快排找数组中第k小元素]]></title>
       <url>%2F2017%2F04%2F24%2F%E5%BF%AB%E6%8E%92%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E7%AC%ACk%E5%B0%8F%E5%85%83%E7%B4%A0%2F</url>
       <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334public kth&#123; public static Comparable select(Comparable[] a, int k)&#123; StdRandom.shuffer(a); int lo = 0; int hi = a.length-1; while (hi &gt; lo)&#123; int j = partition(a,lo,hi); if (j == k) return a[k]; else if (j &gt; k) hi = j - 1; else lo = j + 1; &#125; return a[k]; &#125; int patition(Comparable[] a, int lo, int hi)&#123; int i = lo; int j = hi; Comparable v = a[lo]; while (true)&#123; while (a[++i] &lt; v) if (i == hi) break; while (a[--j] &gt; v) if (j == lo) break; if (i &gt;= j) break; exc(a,i,j); &#125; exc(a,lo,j); return j; &#125; void exc (Comparable[] a, int i, int j)&#123; Comparable t = a[i]; a[i] = a[j]; a[j] = t; &#125;&#125;]]></content>
