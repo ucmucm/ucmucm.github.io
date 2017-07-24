@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Static," />
+  <meta name="keywords" content="Algorithm," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
-<meta name="keywords" content="Static">
+<meta name="description" content="经典的二分查找 123456789101112public boolean isPerfectSquare (int num)&amp;#123;  if (num &amp;lt; 1) return false; //0为啥不算？  long lo = 1; long hi = num; //避免 2147483647  while (lo &amp;lt;= hi)&amp;#123;    long mid = (lo">
+<meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Static静态方法与面向对象">
-<meta property="og:url" content="ucmmm.cc/2017/04/21/Static静态方法与面向对象/index.html">
+<meta property="og:title" content="Valid Perfect Square">
+<meta property="og:url" content="ucmmm.cc/2017/07/25/Valid-Perfect-Square/index.html">
 <meta property="og:site_name" content="Not A Big Deal">
-<meta property="og:description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
-<meta property="og:updated_time" content="2017-04-20T22:46:50.000Z">
+<meta property="og:description" content="经典的二分查找 123456789101112public boolean isPerfectSquare (int num)&amp;#123;  if (num &amp;lt; 1) return false; //0为啥不算？  long lo = 1; long hi = num; //避免 2147483647  while (lo &amp;lt;= hi)&amp;#123;    long mid = (lo">
+<meta property="og:updated_time" content="2017-07-24T09:22:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Static静态方法与面向对象">
-<meta name="twitter:description" content="With the this keyword in mind, you can more fully understand what it means to make amethod static. It means that there is no this for that particular method. You cannot call non-static methods from i">
+<meta name="twitter:title" content="Valid Perfect Square">
+<meta name="twitter:description" content="经典的二分查找 123456789101112public boolean isPerfectSquare (int num)&amp;#123;  if (num &amp;lt; 1) return false; //0为啥不算？  long lo = 1; long hi = num; //避免 2147483647  while (lo &amp;lt;= hi)&amp;#123;    long mid = (lo">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="ucmmm.cc/2017/04/21/Static静态方法与面向对象/"/>
+  <link rel="canonical" href="ucmmm.cc/2017/07/25/Valid-Perfect-Square/"/>
 
 
 
 
 
-  <title> Static静态方法与面向对象 | Not A Big Deal </title>
+  <title> Valid Perfect Square | Not A Big Deal </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -313,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/21/Static静态方法与面向对象/">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/07/25/Valid-Perfect-Square/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ucm">
@@ -334,7 +334,7 @@
             
             
               
-                Static静态方法与面向对象
+                Valid Perfect Square
               
             
           </h1>
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T06:46:00+08:00">
-                2017-04-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T17:15:00-04:00">
+                2017-07-24
               </time>
             
 
@@ -379,6 +379,17 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -391,8 +402,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/21/Static静态方法与面向对象/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/21/Static静态方法与面向对象/" itemprop="commentsCount"></span>
+                <a href="/2017/07/25/Valid-Perfect-Square/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/25/Valid-Perfect-Square/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -419,13 +430,12 @@
       
 
       
-        <blockquote>
-<p>With the <strong>this</strong> keyword in mind, you can more fully understand what it means to make amethod <strong>static</strong>. It means that there is no <strong>this</strong> for that particular method. You cannot call non-<strong>static</strong> methods from inside <strong>static</strong> methods</p>
-<p>[^The one case in which this is possible occurs if you pass a reference to an object into the static method (the static method could also create its own object). Then, via the reference (which is now effectively this), you can call non-static methods and access non-static fields. But typically, if you want to do something like this, you’ll just make an ordinary, non-static method.]: </p>
-<p> (although the reverse is possible), and you can call a <strong>static</strong> method for the class itself, without any object. In fact, that’s primarily what a <strong>static</strong> method is for. It’s as if you’re creating the equivalent of a global method. However,global methods are not permitted in Java, and putting the <strong>static</strong> method inside a class allowsit access to other <strong>static</strong> methods and to <strong>static</strong> fields.</p>
-<p>Some people argue that <strong>static</strong> methods are not object-oriented, since they do have the semantics of a global method; with a <strong>static</strong> method, you don’t send a message to an object, since there’s no <strong>this</strong>. This is probably a fair argument, and if you find yourself using a lot of <strong>static</strong> methods, you should probably rethink your strategy. However, <strong>statics</strong> are pragmatic,and there are times when you genuinely need them, so whether or not they are “proper OOP” should be left to the theoreticians.</p>
-</blockquote>
-
+        <p>经典的二分查找</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPerfectSquare</span> <span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span> (num &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>; <span class="comment">//0为啥不算？</span></div><div class="line">  <span class="keyword">long</span> lo = <span class="number">1</span>; <span class="keyword">long</span> hi = num; <span class="comment">//避免 2147483647</span></div><div class="line">  <span class="keyword">while</span> (lo &lt;= hi)&#123;</div><div class="line">    <span class="keyword">long</span> mid = (lo + hi) / <span class="number">2</span>;</div><div class="line">    <span class="keyword">long</span> tem = mid * mid;</div><div class="line">    <span class="keyword">if</span> (tem == num) <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    <span class="keyword">if</span> (tem &lt; num) lo = mid+<span class="number">1</span>;</div><div class="line">    <span class="keyword">else</span> hi = mid-<span class="number">1</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>牛顿迭代法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPerfectSquare</span> <span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span> (num &lt; <span class="number">1</span>) <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">  <span class="keyword">long</span> x = num;</div><div class="line">  <span class="keyword">while</span> (x * x &gt; num)&#123;</div><div class="line">    x = (x + num/x) / <span class="number">2</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> x * x == num;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>还有个神奇的算法，完全平方数都是由 1+3+5+7…构成，所以可以写成</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPerfectSquare</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</div><div class="line">  <span class="keyword">int</span> i=<span class="number">1</span>;</div><div class="line">  <span class="keyword">while</span> (num &gt; <span class="number">0</span>)&#123;</div><div class="line">    num -= i;</div><div class="line">    i += <span class="number">2</span>;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> num == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -454,7 +464,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Static/" rel="tag"># Static</a>
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           
         </div>
       
@@ -467,18 +477,14 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/23/轮盘赌博的不严谨分析/" rel="next" title="轮盘赌博的不严谨分析">
-                <i class="fa fa-chevron-left"></i> 轮盘赌博的不严谨分析
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/21/Java排序算法总结/" rel="prev" title="Java排序算法总结">
-                Java排序算法总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/13/Product-of-Array-Except-Self/" rel="prev" title="Product of Array Except Self">
+                Product of Array Except Self <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -757,7 +763,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 89662, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/04/21/Static静态方法与面向对象/"});
+		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/07/25/Valid-Perfect-Square/"});
 		
 
 		(function() {

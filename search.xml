@@ -3,6 +3,13 @@
   
     
     <entry>
+      <title><![CDATA[Valid Perfect Square]]></title>
+      <url>%2F2017%2F07%2F25%2FValid-Perfect-Square%2F</url>
+      <content type="text"><![CDATA[经典的二分查找 123456789101112public boolean isPerfectSquare (int num)&#123; if (num &lt; 1) return false; //0为啥不算？ long lo = 1; long hi = num; //避免 2147483647 while (lo &lt;= hi)&#123; long mid = (lo + hi) / 2; long tem = mid * mid; if (tem == num) return true; if (tem &lt; num) lo = mid+1; else hi = mid-1; &#125; return false;&#125; 牛顿迭代法 12345678public boolean isPerfectSquare (int num)&#123; if (num &lt; 1) return false; long x = num; while (x * x &gt; num)&#123; x = (x + num/x) / 2; &#125; return x * x == num;&#125; 还有个神奇的算法，完全平方数都是由 1+3+5+7…构成，所以可以写成 12345678public boolean isPerfectSquare(int num)&#123; int i=1; while (num &gt; 0)&#123; num -= i; i += 2; &#125; return num == 0;&#125;]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Product of Array Except Self]]></title>
       <url>%2F2017%2F07%2F13%2FProduct-of-Array-Except-Self%2F</url>
       <content type="text"><![CDATA[脑洞不一样大之神奇算法系列再现。 Given an array of n integers where n &gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i]. Solve it without division and in O(n). For example, given [1,2,3,4], return [24,12,8,6]. Follow up:Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.) 123456789101112131415public class Solution &#123;public int[] productExceptSelf(int[] nums) &#123; int n = nums.length; int[] res = new int[n]; res[0] = 1; for (int i = 1; i &lt; n; i++) &#123; res[i] = res[i - 1] * nums[i - 1]; &#125; int right = 1; for (int i = n - 1; i &gt;= 0; i--) &#123; res[i] *= right; right *= nums[i]; &#125; return res;&#125; 愣是没看懂什么意思系列= = 评论区看了大神解答，终于看懂了什么意思。假设数组为[2,3,4,5]，如果我们要计算res[2]，也就是2*3*5，那么计算可以分为 left 和 right 两部分，left为2*3，right为5，而最终只需要计算left * right即可， 可以列表为 123Numbers 2 3 4 5left 1 2 2*3 2*3*4right 3*4*5 4*5 5 1 所以原代码中 1res[i] = res[i - 1] * nums[i - 1] 即为计算left部分，2 的 left 是1，3的 left 是第一列 Numbers * left ，4 的 left 是第二列的 Numbers * left，5 的 left 是第三类列的 Numbers * left。 同理计算 right，分别乘的res中，即为所求。 时间复杂度为O(n)，而我们把 left 直接存在了res的数组中，免去了单开 O(n) 的空间复杂度，空间复杂度只有right一个O(1)。 再次跪拜脑洞。]]></content>
