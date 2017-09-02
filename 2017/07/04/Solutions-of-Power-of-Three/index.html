@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Static,Final,Class,Composition,Inheritance," />
+  <meta name="keywords" content="Algorithm," />
 
 
 
@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="Q：如何防止一个类被继承 A：类前加上final Q：因为某样东西属性是final，就认定它的值能在编译时期知道 A：错： 12345public class FinalData&amp;#123;  final int i1 = (int)(Math.random()*20);  static final i2 = (int)(Math.random()*20);  static final I3 =">
-<meta name="keywords" content="Static,Final,Class,Composition,Inheritance">
+<meta name="description" content="Found a summary of some solutions of this problem,  thought that these are interesting and it is worth to record all these ideas. Recursive Solution123public boolean isPowerOfThree(int n)&amp;#123;  retur">
+<meta name="keywords" content="Algorithm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="final和static问答笔记">
-<meta property="og:url" content="ucmmm.cc/2017/04/24/final和static问答笔记/index.html">
+<meta property="og:title" content="Solutions of Power of Three">
+<meta property="og:url" content="ucmmm.cc/2017/07/04/Solutions-of-Power-of-Three/index.html">
 <meta property="og:site_name" content="Not A Big Deal">
-<meta property="og:description" content="Q：如何防止一个类被继承 A：类前加上final Q：因为某样东西属性是final，就认定它的值能在编译时期知道 A：错： 12345public class FinalData&amp;#123;  final int i1 = (int)(Math.random()*20);  static final i2 = (int)(Math.random()*20);  static final I3 =">
-<meta property="og:updated_time" content="2017-04-24T20:10:17.000Z">
+<meta property="og:description" content="Found a summary of some solutions of this problem,  thought that these are interesting and it is worth to record all these ideas. Recursive Solution123public boolean isPowerOfThree(int n)&amp;#123;  retur">
+<meta property="og:updated_time" content="2017-07-11T10:17:32.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="final和static问答笔记">
-<meta name="twitter:description" content="Q：如何防止一个类被继承 A：类前加上final Q：因为某样东西属性是final，就认定它的值能在编译时期知道 A：错： 12345public class FinalData&amp;#123;  final int i1 = (int)(Math.random()*20);  static final i2 = (int)(Math.random()*20);  static final I3 =">
+<meta name="twitter:title" content="Solutions of Power of Three">
+<meta name="twitter:description" content="Found a summary of some solutions of this problem,  thought that these are interesting and it is worth to record all these ideas. Recursive Solution123public boolean isPowerOfThree(int n)&amp;#123;  retur">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="ucmmm.cc/2017/04/24/final和static问答笔记/"/>
+  <link rel="canonical" href="ucmmm.cc/2017/07/04/Solutions-of-Power-of-Three/"/>
 
 
 
 
 
-  <title> final和static问答笔记 | Not A Big Deal </title>
+  <title> Solutions of Power of Three | Not A Big Deal </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -313,7 +313,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/24/final和static问答笔记/">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/07/04/Solutions-of-Power-of-Three/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ucm">
@@ -334,7 +334,7 @@
             
             
               
-                final和static问答笔记
+                Solutions of Power of Three
               
             
           </h1>
@@ -349,8 +349,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T16:02:00-04:00">
-                2017-04-24
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-04T23:20:00-04:00">
+                2017-07-04
               </time>
             
 
@@ -379,6 +379,17 @@
 
                 
                 
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
               
             </span>
           
@@ -391,8 +402,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/24/final和static问答笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/24/final和static问答笔记/" itemprop="commentsCount"></span>
+                <a href="/2017/07/04/Solutions-of-Power-of-Three/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/07/04/Solutions-of-Power-of-Three/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -419,41 +430,25 @@
       
 
       
-        <p>Q：如何防止一个类被继承</p>
-<p>A：类前加上final</p>
-<p>Q：因为某样东西属性是final，就认定它的值能在编译时期知道</p>
-<p>A：错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public class FinalData&#123;</div><div class="line">  final int i1 = (int)(Math.random()*20);</div><div class="line">  static final i2 = (int)(Math.random()*20);</div><div class="line">  static final I3 = 99;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上例中i1和i2在运行期间使用随机生成的数字。顺便对于含有固有初始化值得final static基本类型的数据，名字根据规则要全部采用大写。而i2在编译期间是未知的，所以它没有的大写。</p>
-<p>Q：final和static的区别</p>
-<p>A：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fd1: i1 = 15, i2 = 9</div><div class="line">Creating new FinalData</div><div class="line">fd1: i1 = 15, i2 = 9</div><div class="line">fd2: i1 = 10, i2 = 9</div></pre></td></tr></table></figure>
-<p>对于fd1和fd2来说，i1是唯一的，但i5的值不会犹豫创建了另一个FinalData对象而发生改变。因为它的属性是static，而且在载入时初始化，而非每创建一个对象时初始化。Static强调它们只有一个；而final表明它是一个常数。</p>
-<p>Q：为何使用final方法</p>
-<p>A：</p>
-<blockquote>
-<p>There are two reasons for final methods. The first is to put a “lock” on the method to preventany inheriting class from changing its meaning. This is done for design reasons when you want to make sure that a method’s behavior is retained during inheritance and cannot be overridden.</p>
-<p>The second reason for final methods is efficiency. In earlier implementations of Java, if you made a method final, you allowed the compiler to turn any calls to that method into inlinecalls. When the compiler saw a final method call, it could (at its discretion) skip the normal approach of inserting code to perform the method call mechanism (push arguments on thestack, hop over to the method code and execute it, hop back and clean off the stack arguments, and deal with the return value) and instead replace the method call with a copy of the actual code in the method body. This eliminated the overhead of the method call. Of course, if a method is big, then your code begins to bloat, and you probably wouldn’t see anyperformance gains from inlining, since any improvements will be dwarfed by the amount oftime spent inside the method.</p>
-<p>In more recent version of Java, the virtual machine (in particular, the hotspot technologies) can detect these situations and optimize away the extra indirection, so its no longer necessary-in fact, it is now generally discouraged-to use final to try to help the optimizer. With Java SE5/6, you should let the compiler and JVM handle efficiency issues and make a method final only if you want to explicitly prevent overriding.</p>
-</blockquote>
-<p>两个原因，第一是为Method上锁，防止继承类改变其的意义。设计程序时，若希望一个方法的行为在继承期间保持不变，而且不可被覆盖或改写，就可以采取这种做法。 </p>
-<p>采用final方法的第二个理由是程序执行的效率。将一个方法设成final后，编译器就可以把对那个方法的所有调用都置入“嵌入”调用里。只要编译器发现一个final方法调用，就会（根据它自己的判断）忽略为执行方法调用机制而采取的常规代码插入方法（将自变量压入堆栈；跳至方法代码并执行它；跳回来；清除堆栈自变量；最后对返回值进行处理）。相反，它会用方法主体内实际代码的一个副本来替换方法调用。这样做可避免方法调用时的系统开销。当然，若方法体积太大，那么程序也会变得雍肿，可能受到到不到嵌入代码所带来的任何性能提升。因为任何提升都被花在方法内部的时间抵消了。Java编译器能自动侦测这些情况，并颇为“明智”地决定是否嵌入一个final方法。然而，最好还是不要完全相信编译器能正确地作出所有判断。通常，只有在方法的代码量非常少，或者想明确禁止方法被覆盖的时候，才应考虑将一个方法设为final。</p>
-<p>类内所有private方法都自动成为final。由于我们不能访问一个private方法，所以它绝对不会被其他方法覆盖（若强行这样做，编译器会给出错误提示）。可为一个private方法添加final指示符，但却不能为那个方法提供任何额外的含义</p>
-<p>Q：合成还是继承</p>
-<p>A：</p>
-<blockquote>
-<p>object-oriented programming, the most likely way that you’ll create and use code is by<br>simply packaging data and methods together into a class, and using objects of that class.<br>You’ll also use existing classes to build new classes with composition. Less frequently, you’ll<br>use inheritance. So although inheritance gets a lot of emphasis while learning OOP, it doesn’t mean that you should use it everywhere you possibly can. On the contrary, you should use it sparingly, only when it’s clear that inheritance is useful. One of the clearest ways to determine whether you should use composition or inheritance is to ask whether you’ll ever need to upcast from your new class to the base class. If you must upcast, then inheritance is necessary, but if you don’t need to upcast, then you should look closely at whether you need inheritance. But if you remember to ask “Do I need to upcast?” you’ll have a good tool for deciding between composition and inheritance.</p>
-</blockquote>
-<p>在面向对象的程序设计中，创建和使用代码最可能采取的一种做法是：将数据和方法统一封装到一个类里，并且使用那个类的对象。有些时候，需通过“合成”技术用现成的类来构造新类。而继承是最少见的一种做法。因此，尽管继承在学习OOP的过程中得到了大量的强调，但并不意味着应该尽可能地到处使用它。相反，使用它时要特别慎重。只有在清楚知道继承在所有方法中最有效的前提下，才可考虑它。为判断自己到底应该选用合成还是继承，一个最简单的办法就是考虑是否需要从新类上溯造型回基础类。若必须上溯，就需要继承。但如果不需要上溯造型，就应提醒自己防止继承的滥用。但只要记住经常问自己“我真的需要上溯造型吗”，对于合成还是继承的选择就不应该是个太大的问题。</p>
-<p>Q：Java初始化和类装在的顺序</p>
-<p>A：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//: Beetle.java</div><div class="line">// The full process of initialization.</div><div class="line"></div><div class="line">class Insect &#123;</div><div class="line">  int i = 9;</div><div class="line">  int j;</div><div class="line">  Insect() &#123;</div><div class="line">    prt(&quot;i = &quot; + i + &quot;, j = &quot; + j);</div><div class="line">    j = 39;</div><div class="line">  &#125;</div><div class="line">  static int x1 = </div><div class="line">    prt(&quot;static Insect.x1 initialized&quot;);</div><div class="line">  static int prt(String s) &#123;</div><div class="line">    System.out.println(s);</div><div class="line">    return 47;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Beetle extends Insect &#123;</div><div class="line">  int k = prt(&quot;Beetle.k initialized&quot;);</div><div class="line">  Beetle() &#123;</div><div class="line">    prt(&quot;k = &quot; + k);</div><div class="line">    prt(&quot;j = &quot; + j);</div><div class="line">  &#125;</div><div class="line">  static int x2 =</div><div class="line">    prt(&quot;static Beetle.x2 initialized&quot;);</div><div class="line">  static int prt(String s) &#123;</div><div class="line">    System.out.println(s);</div><div class="line">    return 63;</div><div class="line">  &#125;</div><div class="line">  public static void main(String[] args) &#123;</div><div class="line">    prt(&quot;Beetle constructor&quot;);</div><div class="line">    Beetle b = new Beetle();</div><div class="line">  &#125;</div><div class="line">&#125; ///:~</div></pre></td></tr></table></figure>
-<p>输出为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">static Insect.x initialized</div><div class="line">static Beetle.x initialized</div><div class="line">Beetle constructor</div><div class="line">i = 9, j = 0</div><div class="line">Beetle.k initialized</div><div class="line">k = 63</div><div class="line">j = 39</div></pre></td></tr></table></figure>
-<p>对Beetle运行Java时，发生的第一件事情是装载程序到外面找到那个类。在装载过程中，装载程序注意它有一个基础类（即extends关键字要表达的意思），所以随之将其载入。无论是否准备生成那个基础类的一个对象，这个过程都会发生（请试着将对象的创建代码当作注释标注出来，自己去证实）。</p>
-<p>若基础类含有另一个基础类，则另一个基础类随即也会载入，以此类推。接下来，会在根基础类（此时是Insect）执行static初始化，再在下一个衍生类执行，以此类推。保证这个顺序是非常关键的，因为衍生类的初始化可能要依赖于对基础类成员的正确初始化。</p>
-<p>此时，必要的类已全部装载完毕，所以能够创建对象。首先，这个对象中的所有基本数据类型都会设成它们的默认值，而将对象句柄设为null。随后会调用基础类构建器。在这种情况下，调用是自动进行的。但也完全可以用super来自行指定构建器调用（就象在Beetle()构建器中的第一个操作一样）。基础类的构建采用与衍生类构建器完全相同的处理过程。基础顺构建器完成以后，实例变量会按本来的顺序得以初始化。最后，执行构建器剩余的主体部分。</p>
-
+        <p>Found a summary of some solutions of this problem,  thought that these are interesting and it is worth to record all these ideas.</p>
+<h5 id="Recursive-Solution"><a href="#Recursive-Solution" class="headerlink" title="Recursive Solution"></a>Recursive Solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">  <span class="keyword">return</span> n&gt;<span class="number">0</span> &amp;&amp; (n==<span class="number">1</span> || (n%<span class="number">3</span> == <span class="number">0</span> &amp;&amp; isPowerOfThree(n/<span class="number">3</span>)));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Iterative-Solution"><a href="#Iterative-Solution" class="headerlink" title="Iterative Solution"></a>Iterative Solution</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</div><div class="line">  <span class="keyword">if</span> (n&gt;<span class="number">1</span>)</div><div class="line">  	<span class="keyword">while</span>(n%<span class="number">3</span> == <span class="number">0</span>) n /= <span class="number">3</span>;</div><div class="line">  <span class="keyword">return</span> n==<span class="number">1</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Other-Method-1"><a href="#Other-Method-1" class="headerlink" title="Other Method 1"></a>Other Method 1</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> maxPowerOfThree = (<span class="keyword">int</span>)Math.pow(<span class="number">3</span>, (<span class="keyword">int</span>)(Math.log(<span class="number">0x7fffffff</span>) / Math.log(<span class="number">3</span>)));</div><div class="line">    <span class="keyword">return</span> n&gt;<span class="number">0</span> &amp;&amp; maxPowerOfThree%n==<span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Or simply hard code it since we know <code>maxPowerOfThree = 1162261467</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> n &gt; <span class="number">0</span> &amp;&amp; (<span class="number">1162261467</span> % n == <span class="number">0</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>It is worthwhile to mention that Method 1 works only when the base is prime. For example, we cannot use this algorithm to check if a number is a power of 4 or 6 or any other composite number.</p>
+<h5 id="Other-Method-2"><a href="#Other-Method-2" class="headerlink" title="Other Method 2"></a>Other Method 2</h5><p>If <code>log10(n) / log10(3)</code> returns an int (more precisely, a double but has 0 after decimal point), then n is a power of 3. But <strong>be careful here</strong>, you cannot use <code>log</code>(natural log) here, because it will generate round off error for <code>n=243</code>. This is more like a coincidence. I mean when <code>n=243</code>, we have the following result:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">log(<span class="number">243</span>) = <span class="number">5.493061443340548</span>    log(<span class="number">3</span>) = <span class="number">1.0986122886681098</span></div><div class="line">   ==&gt; log(<span class="number">243</span>)/log(<span class="number">3</span>) = <span class="number">4.999999999999999</span></div><div class="line"></div><div class="line">log10(<span class="number">243</span>) = <span class="number">2.385606273598312</span>    log10(<span class="number">3</span>) = <span class="number">0.47712125471966244</span></div><div class="line">   ==&gt; log10(<span class="number">243</span>)/log10(<span class="number">3</span>) = <span class="number">5.0</span></div></pre></td></tr></table></figure>
+<p>This happens because <code>log(3)</code> is actually slightly larger than its true value due to round off, which makes the ratio smaller.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> (Math.log10(n) / Math.log10(<span class="number">3</span>)) % <span class="number">1</span> == <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Other-Method-3"><a href="#Other-Method-3" class="headerlink" title="Other Method 3"></a>Other Method 3</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> n==<span class="number">0</span> ? <span class="keyword">false</span> : n==Math.pow(<span class="number">3</span>, Math.round(Math.log(n) / Math.log(<span class="number">3</span>)));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Other-Method-4"><a href="#Other-Method-4" class="headerlink" title="Other Method 4"></a>Other Method 4</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> n&gt;<span class="number">0</span> &amp;&amp; Math.abs(Math.log10(n)/Math.log10(<span class="number">3</span>)-Math.ceil(Math.log10(n)/Math.log10(<span class="number">3</span>))) &lt; Double.MIN_VALUE;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Cheating-Method"><a href="#Cheating-Method" class="headerlink" title="Cheating Method"></a>Cheating Method</h5><p>Array:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span>[] allPowerOfThree = <span class="keyword">new</span> <span class="keyword">int</span>[]&#123;<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">27</span>, <span class="number">81</span>, <span class="number">243</span>, <span class="number">729</span>, <span class="number">2187</span>, <span class="number">6561</span>, <span class="number">19683</span>, <span class="number">59049</span>, <span class="number">177147</span>, <span class="number">531441</span>, <span class="number">1594323</span>, <span class="number">4782969</span>, <span class="number">14348907</span>, <span class="number">43046721</span>, <span class="number">129140163</span>, <span class="number">387420489</span>, <span class="number">1162261467</span>&#125;;</div><div class="line">    <span class="keyword">return</span> Arrays.binarySearch(allPowerOfThree, n) &gt;= <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>HaseSet:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    HashSet&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;(Arrays.asList(<span class="number">1</span>, <span class="number">3</span>, <span class="number">9</span>, <span class="number">27</span>, <span class="number">81</span>, <span class="number">243</span>, <span class="number">729</span>, <span class="number">2187</span>, <span class="number">6561</span>, <span class="number">19683</span>, <span class="number">59049</span>, <span class="number">177147</span>, <span class="number">531441</span>, <span class="number">1594323</span>, <span class="number">4782969</span>, <span class="number">14348907</span>, <span class="number">43046721</span>, <span class="number">129140163</span>, <span class="number">387420489</span>, <span class="number">1162261467</span>));</div><div class="line">    <span class="keyword">return</span> set.contains(n);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Radix-3-Method"><a href="#Radix-3-Method" class="headerlink" title="Radix-3 Method"></a>Radix-3 Method</h5><p>The idea is to convert the original number into radix-3 format and check if it is of format <code>10*</code> where <code>0*</code> means <code>k</code> zeros with <code>k&gt;=0</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isPowerOfThree</span><span class="params">(<span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">    <span class="keyword">return</span> Integer.toString(n, <span class="number">3</span>).matches(<span class="string">"10*"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -482,15 +477,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Static/" rel="tag"># Static</a>
-          
-            <a href="/tags/Final/" rel="tag"># Final</a>
-          
-            <a href="/tags/Class/" rel="tag"># Class</a>
-          
-            <a href="/tags/Composition/" rel="tag"># Composition</a>
-          
-            <a href="/tags/Inheritance/" rel="tag"># Inheritance</a>
+            <a href="/tags/Algorithm/" rel="tag"># Algorithm</a>
           
         </div>
       
@@ -503,8 +490,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/24/快排找数组中第k小元素/" rel="next" title="快排找数组中第k小元素">
-                <i class="fa fa-chevron-left"></i> 快排找数组中第k小元素
+              <a href="/2017/07/11/Intersection-of-Two-Linked-Lists/" rel="next" title="Intersection of Two Linked Lists">
+                <i class="fa fa-chevron-left"></i> Intersection of Two Linked Lists
               </a>
             
           </div>
@@ -513,8 +500,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/23/对象的创建过程笔记/" rel="prev" title="对象的创建过程笔记">
-                对象的创建过程笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/03/再战The-Big-Wheel轮盘赌博/" rel="prev" title="再战The Big Wheel轮盘赌博">
+                再战The Big Wheel轮盘赌博 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -564,8 +551,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -656,6 +652,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Recursive-Solution"><span class="nav-number">1.</span> <span class="nav-text">Recursive Solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Iterative-Solution"><span class="nav-number">2.</span> <span class="nav-text">Iterative Solution</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Other-Method-1"><span class="nav-number">3.</span> <span class="nav-text">Other Method 1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Other-Method-2"><span class="nav-number">4.</span> <span class="nav-text">Other Method 2</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Other-Method-3"><span class="nav-number">5.</span> <span class="nav-text">Other Method 3</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Other-Method-4"><span class="nav-number">6.</span> <span class="nav-text">Other Method 4</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Cheating-Method"><span class="nav-number">7.</span> <span class="nav-text">Cheating Method</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Radix-3-Method"><span class="nav-number">8.</span> <span class="nav-text">Radix-3 Method</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -793,7 +805,7 @@
 		_hcwp.push({widget:"Bloggerstream", widget_id: 89662, selector:".hc-comment-count", label: "{\%COUNT%\}" });
 
 		
-		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/04/24/final和static问答笔记/"});
+		_hcwp.push({widget:"Stream", widget_id: 89662, xid: "2017/07/04/Solutions-of-Power-of-Three/"});
 		
 
 		(function() {
