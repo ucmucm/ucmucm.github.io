@@ -310,6 +310,359 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/24/final和static问答笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ucm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Not A Big Deal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/24/final和static问答笔记/" itemprop="url">
+                  final和static问答笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T16:02:00-04:00">
+                2017-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/24/final和static问答笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/24/final和static问答笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Q：如何防止一个类被继承</p>
+<p>A：类前加上final</p>
+<p>Q：因为某样东西属性是final，就认定它的值能在编译时期知道</p>
+<p>A：错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">public class FinalData&#123;</div><div class="line">  final int i1 = (int)(Math.random()*20);</div><div class="line">  static final i2 = (int)(Math.random()*20);</div><div class="line">  static final I3 = 99;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上例中i1和i2在运行期间使用随机生成的数字。顺便对于含有固有初始化值得final static基本类型的数据，名字根据规则要全部采用大写。而i2在编译期间是未知的，所以它没有的大写。</p>
+<p>Q：final和static的区别</p>
+<p>A：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">fd1: i1 = 15, i2 = 9</div><div class="line">Creating new FinalData</div><div class="line">fd1: i1 = 15, i2 = 9</div><div class="line">fd2: i1 = 10, i2 = 9</div></pre></td></tr></table></figure>
+<p>对于fd1和fd2来说，i1是唯一的，但i5的值不会犹豫创建了另一个FinalData对象而发生改变。因为它的属性是static，而且在载入时初始化，而非每创建一个对象时初始化。Static强调它们只有一个；而final表明它是一个常数。</p>
+<p>Q：为何使用final方法</p>
+<p>A：</p>
+<blockquote>
+<p>There are two reasons for final methods. The first is to put a “lock” on the method to preventany inheriting class from changing its meaning. This is done for design reasons when you want to make sure that a method’s behavior is retained during inheritance and cannot be overridden.</p>
+<p>The second reason for final methods is efficiency. In earlier implementations of Java, if you made a method final, you allowed the compiler to turn any calls to that method into inlinecalls. When the compiler saw a final method call, it could (at its discretion) skip the normal approach of inserting code to perform the method call mechanism (push arguments on thestack, hop over to the method code and execute it, hop back and clean off the stack arguments, and deal with the return value) and instead replace the method call with a copy of the actual code in the method body. This eliminated the overhead of the method call. Of course, if a method is big, then your code begins to bloat, and you probably wouldn’t see anyperformance gains from inlining, since any improvements will be dwarfed by the amount oftime spent inside the method.</p>
+<p>In more recent version of Java, the virtual machine (in particular, the hotspot technologies) can detect these situations and optimize away the extra indirection, so its no longer necessary-in fact, it is now generally discouraged-to use final to try to help the optimizer. With Java SE5/6, you should let the compiler and JVM handle efficiency issues and make a method final only if you want to explicitly prevent overriding.</p>
+</blockquote>
+<p>两个原因，第一是为Method上锁，防止继承类改变其的意义。设计程序时，若希望一个方法的行为在继承期间保持不变，而且不可被覆盖或改写，就可以采取这种做法。 </p>
+<p>采用final方法的第二个理由是程序执行的效率。将一个方法设成final后，编译器就可以把对那个方法的所有调用都置入“嵌入”调用里。只要编译器发现一个final方法调用，就会（根据它自己的判断）忽略为执行方法调用机制而采取的常规代码插入方法（将自变量压入堆栈；跳至方法代码并执行它；跳回来；清除堆栈自变量；最后对返回值进行处理）。相反，它会用方法主体内实际代码的一个副本来替换方法调用。这样做可避免方法调用时的系统开销。当然，若方法体积太大，那么程序也会变得雍肿，可能受到到不到嵌入代码所带来的任何性能提升。因为任何提升都被花在方法内部的时间抵消了。Java编译器能自动侦测这些情况，并颇为“明智”地决定是否嵌入一个final方法。然而，最好还是不要完全相信编译器能正确地作出所有判断。通常，只有在方法的代码量非常少，或者想明确禁止方法被覆盖的时候，才应考虑将一个方法设为final。</p>
+<p>类内所有private方法都自动成为final。由于我们不能访问一个private方法，所以它绝对不会被其他方法覆盖（若强行这样做，编译器会给出错误提示）。可为一个private方法添加final指示符，但却不能为那个方法提供任何额外的含义</p>
+<p>Q：合成还是继承</p>
+<p>A：</p>
+<blockquote>
+<p>object-oriented programming, the most likely way that you’ll create and use code is by<br>simply packaging data and methods together into a class, and using objects of that class.<br>You’ll also use existing classes to build new classes with composition. Less frequently, you’ll<br>use inheritance. So although inheritance gets a lot of emphasis while learning OOP, it doesn’t mean that you should use it everywhere you possibly can. On the contrary, you should use it sparingly, only when it’s clear that inheritance is useful. One of the clearest ways to determine whether you should use composition or inheritance is to ask whether you’ll ever need to upcast from your new class to the base class. If you must upcast, then inheritance is necessary, but if you don’t need to upcast, then you should look closely at whether you need inheritance. But if you remember to ask “Do I need to upcast?” you’ll have a good tool for deciding between composition and inheritance.</p>
+</blockquote>
+<p>在面向对象的程序设计中，创建和使用代码最可能采取的一种做法是：将数据和方法统一封装到一个类里，并且使用那个类的对象。有些时候，需通过“合成”技术用现成的类来构造新类。而继承是最少见的一种做法。因此，尽管继承在学习OOP的过程中得到了大量的强调，但并不意味着应该尽可能地到处使用它。相反，使用它时要特别慎重。只有在清楚知道继承在所有方法中最有效的前提下，才可考虑它。为判断自己到底应该选用合成还是继承，一个最简单的办法就是考虑是否需要从新类上溯造型回基础类。若必须上溯，就需要继承。但如果不需要上溯造型，就应提醒自己防止继承的滥用。但只要记住经常问自己“我真的需要上溯造型吗”，对于合成还是继承的选择就不应该是个太大的问题。</p>
+<p>Q：Java初始化和类装在的顺序</p>
+<p>A：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">//: Beetle.java</div><div class="line">// The full process of initialization.</div><div class="line"></div><div class="line">class Insect &#123;</div><div class="line">  int i = 9;</div><div class="line">  int j;</div><div class="line">  Insect() &#123;</div><div class="line">    prt(&quot;i = &quot; + i + &quot;, j = &quot; + j);</div><div class="line">    j = 39;</div><div class="line">  &#125;</div><div class="line">  static int x1 = </div><div class="line">    prt(&quot;static Insect.x1 initialized&quot;);</div><div class="line">  static int prt(String s) &#123;</div><div class="line">    System.out.println(s);</div><div class="line">    return 47;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">public class Beetle extends Insect &#123;</div><div class="line">  int k = prt(&quot;Beetle.k initialized&quot;);</div><div class="line">  Beetle() &#123;</div><div class="line">    prt(&quot;k = &quot; + k);</div><div class="line">    prt(&quot;j = &quot; + j);</div><div class="line">  &#125;</div><div class="line">  static int x2 =</div><div class="line">    prt(&quot;static Beetle.x2 initialized&quot;);</div><div class="line">  static int prt(String s) &#123;</div><div class="line">    System.out.println(s);</div><div class="line">    return 63;</div><div class="line">  &#125;</div><div class="line">  public static void main(String[] args) &#123;</div><div class="line">    prt(&quot;Beetle constructor&quot;);</div><div class="line">    Beetle b = new Beetle();</div><div class="line">  &#125;</div><div class="line">&#125; ///:~</div></pre></td></tr></table></figure>
+<p>输出为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">static Insect.x initialized</div><div class="line">static Beetle.x initialized</div><div class="line">Beetle constructor</div><div class="line">i = 9, j = 0</div><div class="line">Beetle.k initialized</div><div class="line">k = 63</div><div class="line">j = 39</div></pre></td></tr></table></figure>
+<p>对Beetle运行Java时，发生的第一件事情是装载程序到外面找到那个类。在装载过程中，装载程序注意它有一个基础类（即extends关键字要表达的意思），所以随之将其载入。无论是否准备生成那个基础类的一个对象，这个过程都会发生（请试着将对象的创建代码当作注释标注出来，自己去证实）。</p>
+<p>若基础类含有另一个基础类，则另一个基础类随即也会载入，以此类推。接下来，会在根基础类（此时是Insect）执行static初始化，再在下一个衍生类执行，以此类推。保证这个顺序是非常关键的，因为衍生类的初始化可能要依赖于对基础类成员的正确初始化。</p>
+<p>此时，必要的类已全部装载完毕，所以能够创建对象。首先，这个对象中的所有基本数据类型都会设成它们的默认值，而将对象句柄设为null。随后会调用基础类构建器。在这种情况下，调用是自动进行的。但也完全可以用super来自行指定构建器调用（就象在Beetle()构建器中的第一个操作一样）。基础类的构建采用与衍生类构建器完全相同的处理过程。基础顺构建器完成以后，实例变量会按本来的顺序得以初始化。最后，执行构建器剩余的主体部分。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/23/对象的创建过程笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ucm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Not A Big Deal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/04/23/对象的创建过程笔记/" itemprop="url">
+                  对象的创建过程笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-23T20:00:00-04:00">
+                2017-04-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/23/对象的创建过程笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/23/对象的创建过程笔记/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对象的创建过程，请考虑一个名为Dog的类：</p>
+<p>(1) 类型为Dog的一个对象首次创建时，或者Dog类的static方法／static字段首次访问时，Java解释器必须找到Dog.class（在事先设好的类路径里搜索）。</p>
+<p>(2) 找到Dog.class后（它会创建一个Class对象），它的所有static初始化模块都会运行。因此，static初始化仅发生一次——在Class对象首次载入的时候。</p>
+<p>(3) 创建一个new Dog()时，Dog对象的构建进程首先会在内存堆（Heap）里为一个Dog对象分配足够多的存储空间。</p>
+<p>(4) 这种存储空间会清为零，将Dog中的所有基本类型设为它们的默认值（零用于数字，以及boolean和char的等价设定）。</p>
+<p>(5) 进行字段定义时发生的所有初始化都会执行。</p>
+<p>(6) 执行构建器。</p>
+<p>一个类不允许被设置成private或者protected，所以只有两种选择来访问类：包或者public。如果你不想让任何人访问那个类，你可以令所有的构建器private，因此，在class内置一个static方法，可以防止除了你以外的人创建一个此类的对象。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">//: access/Lunch.java</div><div class="line">// Demonstrates class access specifiers. Make a class</div><div class="line">// effectively private with private constructors:</div><div class="line">class Soup1 &#123;</div><div class="line">  private Soup1() &#123;&#125;</div><div class="line">  // (1) Allow creation via static method:</div><div class="line">  public static Soup1 makeSoup() &#123;</div><div class="line">    return new Soup1();</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class Soup2 &#123;</div><div class="line">  private Soup2() &#123;&#125;</div><div class="line">  // (2) Create a static object and return a reference</div><div class="line">  // upon request.(The &quot;Singleton&quot; pattern):</div><div class="line">  private static Soup2 ps1 = new Soup2();</div><div class="line">  public static Soup2 access() &#123;</div><div class="line">return ps1; &#125;</div><div class="line">  public void f() &#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">// Only one public class allowed per file:</div><div class="line">public class Lunch &#123;</div><div class="line">  void testPrivate() &#123;</div><div class="line">    // Can’t do this! Private constructor:</div><div class="line">    //! Soup1 soup = new Soup1();</div><div class="line">  &#125;</div><div class="line">  void testStatic() &#123;</div><div class="line">    Soup1 soup = Soup1.makeSoup();</div><div class="line">  &#125;</div><div class="line">  void testSingleton() &#123;</div><div class="line">    Soup2.access().f();</div><div class="line">  &#125;</div><div class="line">&#125; ///:~</div></pre></td></tr></table></figure>
+<p>Soup1我们可创建一个static方法，再通过它创建一个新的Soup，然后返回指向它的一个句柄。如果想在返回之前对Soup进行一些额外的操作，或者想了解准备创建多少个Soup对象（可能是为了限制它们的个数），这种方案无疑是特别有用的。</p>
+<p>Soup2是采用“设计方案”（Design Pattern）技术。通常方案叫作“独子”（Singleton），因为它仅允许创建一个对象。类Soup的对象被创建成Soup的一个static private成员，所以有一个而且只能有一个。除非通过public方法access()，否则根本无法访问它。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/23/轮盘赌博的不严谨分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1390,7 +1743,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

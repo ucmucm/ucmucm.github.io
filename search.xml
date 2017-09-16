@@ -3,6 +3,20 @@
   
     
     <entry>
+      <title><![CDATA[Google-OA(Flower)]]></title>
+      <url>%2F2017%2F09%2F16%2FGoogle-OA(Flower)%2F</url>
+      <content type="text"><![CDATA[有一个长度为N的花坛，每天开exactly一朵花，给定一个1-N的permutation，代表每天开花的位置。假设某一个时刻，i和j位置的花开了，且i和j之间没有别的花开，那么中间就有一个长度为j-i-1的empty slot（最左的花就考虑和花坛左端的empty slot，最右的考虑和花坛右端的empty slot）。给定permutation P和一个指定empty slot size K，返回最早是哪一天，花坛中出现了大小为K的empty slot，如果始终没有出现，返回-1。要求O(N)空间，O(NlogN)时间。 思路：TreeSet，The time complexity of lower() and higher() are both O(logn)，非常直接 1234567891011121314151617class Solution &#123; public int theEarlyDay(int[] order, int size) &#123; int len = order.length; TreeSet&lt;Integer&gt; set = new TreeSet&lt;&gt;(); for (int i=0; i&lt;len; i++)&#123; set.add(order[i]); int left = 0, right = 0; if (set.lower(order[i]) == null) left = order[i] - 1; else left = order[i] - set.lower(order[i]) - 1; if (left == size) return i+1; if (set.higher(order[i]) == null) right = len - order[i]; else right = set.higher(order[i]) - order[i] - 1; if (right == size) return i+1; &#125; return -1; &#125;&#125; 还是自己测试了一下，应该没问题。]]></content>
+    </entry>
+
+    
+    <entry>
+      <title><![CDATA[Google OA(HH:MM)]]></title>
+      <url>%2F2017%2F09%2F16%2FGoogle-OA(HH%3AMM)%2F</url>
+      <content type="text"><![CDATA[input给一个format “00:00” - “23:59” 的时间，里面每位数字可以重复使用，问组成的下一个时间是多少。 例23:59 —&gt; 22:22 直接暴力 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051class Solution &#123; public String nextTime(String time) &#123; StringBuffer res = new StringBuffer(); TreeSet&lt;Integer&gt; set = new TreeSet&lt;&gt;(); for(int i=0; i&lt;5; i++)&#123; if (i == 2) continue; set.add(time.charAt(i)-48); &#125; int point = 0; for (int i=4; i&gt;=0; i--)&#123; if (i == 2) &#123; res.append(':'); continue; &#125; if (i == 4)&#123; if (set.higher(time.charAt(i)-48) == null) point = 1; if (point == 1) res.append(set.first()); else res.append(set.higher(time.charAt(i)-48)); &#125; else if (i == 3)&#123; if (point == 0) res.append(time.charAt(i)); else&#123; if (set.higher(time.charAt(i) - 48) == null || set.higher(time.charAt(i)-48) &gt; 5) res.append(set.first()); else &#123; res.append(set.higher(time.charAt(i)-48)); point = 0; &#125; &#125; &#125; else if (i == 1)&#123; if (point == 0) res.append(time.charAt(i)); else &#123; if (set.higher(time.charAt(i) - 48) == null || set.higher(time.charAt(i)-48) &gt; 3) res.append(set.first()); else &#123; res.append(set.higher(time.charAt(i) - 48)); point = 0; &#125; &#125; &#125; else &#123; if (point == 0) res.append(time.charAt(i)); else&#123; if (set.higher(time.charAt(i)-48) == null || set.higher(time.charAt(i)-48) &gt; 2) res.append(set.first()); else res.append(set.higher(time.charAt(i)-48)); &#125; &#125; &#125; res.reverse(); return res.toString(); &#125;&#125; 自己随便测试了一下，应该可行。]]></content>
+    </entry>
+
+    
+    <entry>
       <title><![CDATA[Valid Perfect Square]]></title>
       <url>%2F2017%2F07%2F24%2FValid-Perfect-Square%2F</url>
       <content type="text"><![CDATA[经典的二分查找 123456789101112public boolean isPerfectSquare (int num)&#123; if (num &lt; 1) return false; //0为啥不算？ long lo = 1; long hi = num; //避免 2147483647 while (lo &lt;= hi)&#123; long mid = (lo + hi) / 2; long tem = mid * mid; if (tem == num) return true; if (tem &lt; num) lo = mid+1; else hi = mid-1; &#125; return false;&#125; 牛顿迭代法 12345678public boolean isPerfectSquare (int num)&#123; if (num &lt; 1) return false; long x = num; while (x * x &gt; num)&#123; x = (x + num/x) / 2; &#125; return x * x == num;&#125; 还有个神奇的算法，完全平方数都是由 1+3+5+7…构成，所以可以写成 12345678public boolean isPerfectSquare(int num)&#123; int i=1; while (num &gt; 0)&#123; num -= i; i += 2; &#125; return num == 0;&#125;]]></content>
