@@ -310,6 +310,217 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/11/07/Single-Number-Triple-Kill-三连击/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ucm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Not A Big Deal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/11/07/Single-Number-Triple-Kill-三连击/" itemprop="url">
+                  Single Number Triple Kill 三连击
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-07T23:30:00-05:00">
+                2017-11-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+                  , 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/Algorithm/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithm</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/07/Single-Number-Triple-Kill-三连击/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/11/07/Single-Number-Triple-Kill-三连击/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>被Leetcode上面的Single Number上面的骚操作震惊到了，尤其是2和3，简直神一般的脑洞和操作。</p>
+<p>先放上原题</p>
+<p><a href="https://leetcode.com/problems/single-number/description/" target="_blank" rel="external">Single Number</a></p>
+<p><a href="https://leetcode.com/problems/single-number-ii/description/" target="_blank" rel="external">Single Number 2</a></p>
+<p><a href="https://leetcode.com/problems/single-number-iii/description/" target="_blank" rel="external">Single Number 3</a></p>
+<h5 id="Single-Number"><a href="#Single-Number" class="headerlink" title="Single Number:"></a>Single Number:</h5><blockquote>
+<p>Given an array of integers, every element appears <em>twice</em> except for one. Find that single one.</p>
+<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+</blockquote>
+<p>这道题没什么好说的，一路XOR到底直接搞定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;   </div><div class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++) </div><div class="line">        n ^= nums[i];</div><div class="line">    <span class="keyword">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="Single-Number-II"><a href="#Single-Number-II" class="headerlink" title="Single Number II:"></a>Single Number II:</h5><blockquote>
+<p>Given an array of integers, every element appears <em>three</em> times except for one, which appears exactly once. Find that single one.</p>
+<p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
+</blockquote>
+<p>这道题就有点意思了，直接丢出Discuss第一的答案，个人觉得非常完美了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</div><div class="line">    <span class="keyword">int</span> ones = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> twos = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)&#123;</div><div class="line">        ones = (ones ^ nums[i]) &amp; (~twos);</div><div class="line">        twos = (twos ^ nums[i]) &amp; (~ones);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> ones;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>简单分析这段代码想表达的意思：</p>
+<p>ones代表一个数是否为第一出现，twos代表一个数是否为第二次出现。</p>
+<p>当一个数出现第一次：</p>
+<p>​    <code>ones = (ones ^ nums[i]) &amp; (~twos)</code></p>
+<p>​        ones设为1（将nums[i]存在ones里面，下同），并检查twos里面是否为1，此时twos为0，所以ones为1（这个数）。</p>
+<p>​         <code>twos = (twos ^ nums[i]) &amp; (~ones)</code></p>
+<p>​        twos设为1，并检查ones是否为1，此时因为第一次出现，故已在上一行将ones设为1，此时twos结果为0。</p>
+<p>当一个数出现第二次：</p>
+<p>​    <code>ones = (ones ^ nums[i]) &amp; (~twos)</code></p>
+<p>​        ones设为0，并检查twos里面是否为1，此时twos为1，所以ones为0。</p>
+<p>​         <code>twos = (twos ^ nums[i]) &amp; (~ones)</code></p>
+<p>​        twos设为1，并检查ones是否为1，此时ones为0，所以ones为1。</p>
+<p>当一个数第三次出现：</p>
+<p>​    <code>ones = (ones ^ nums[i]) &amp; (~twos)</code></p>
+<p>​        ones设为1，并检查twos里面是否为1，此时twos为1，所以ones为0。</p>
+<p>​         <code>twos = (twos ^ nums[i]) &amp; (~ones)</code></p>
+<p>​        twos设为0，并检查ones为1或者0，此时ones为0，所以ones为0。</p>
+<p>这时候ones和twos都变为0，达到一个数出现三次全部清零。这个时候只剩下一个distinct的数，而它只出现了一次，并且存在了ones里，此时只需要返回ones，即所求答案。</p>
+<p>此题可推广为其他数出现k此，而某一个数出现p次的情况，这时候用此方法一样可以解决。</p>
+<p>假设k = 5，而p为1，即其他数都出现了5次而只有一个数出现了一次，我们可以设定三个bit来对每一个数出现次数进行计数，分别为a,b,c：</p>
+<p>出现1次：100, a=1, b=0, c=0;</p>
+<p>出现2次：010, a=0, b=1, c=0;</p>
+<p>出现3次：110, a=1, b=1, c=0;</p>
+<p>出现4次：001, a=0, b=0, c=1;</p>
+<p>出现5次：000, a=0, b=0, c=0;</p>
+<p>注意观察三个数的变化所需要哪些个其他数来判断，比如说：</p>
+<p>b需要根据a来判断是否变化，而a则根据c来判断是否清零，而c则需要a和b都为1才能变为1。</p>
+<p>每次只需要更新a,b,c的值，可写出代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> na = <span class="number">0</span>, nb = <span class="number">0</span>, nc = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</div><div class="line">		nb = nb ^ (A[i] &amp; na);</div><div class="line">		na = (na ^ A[i]) &amp; ~nc;</div><div class="line">		nc = nc ^ (A[i] &amp; ~na &amp; ~nb);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> na &amp; ~nb &amp; ~nc;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/09/16/Google-OA(Flower)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1869,171 +2080,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/04/24/快排找数组中第k小元素/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ucm">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Not A Big Deal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/24/快排找数组中第k小元素/" itemprop="url">
-                  快排找数组中第k小元素
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-24T17:06:00-04:00">
-                2017-04-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/Algorithm/" itemprop="url" rel="index">
-                    <span itemprop="name">Algorithm</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/04/24/快排找数组中第k小元素/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/04/24/快排找数组中第k小元素/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> kth&#123;</div><div class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Comparable <span class="title">select</span><span class="params">(Comparable[] a, <span class="keyword">int</span> k)</span></span>&#123;</div><div class="line">    StdRandom.shuffer(a);</div><div class="line">    <span class="keyword">int</span> lo = <span class="number">0</span>;</div><div class="line">    <span class="keyword">int</span> hi = a.length-<span class="number">1</span>;</div><div class="line">    <span class="keyword">while</span> (hi &gt; lo)&#123;</div><div class="line">      <span class="keyword">int</span> j = partition(a,lo,hi);</div><div class="line">      <span class="keyword">if</span> (j == k) <span class="keyword">return</span> a[k];</div><div class="line">      <span class="keyword">else</span> <span class="keyword">if</span> (j &gt; k) hi = j - <span class="number">1</span>;</div><div class="line">      <span class="keyword">else</span> lo = j + <span class="number">1</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> a[k];</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">int</span> <span class="title">patition</span><span class="params">(Comparable[] a, <span class="keyword">int</span> lo, <span class="keyword">int</span> hi)</span></span>&#123;</div><div class="line">    <span class="keyword">int</span> i = lo;</div><div class="line">    <span class="keyword">int</span> j = hi;</div><div class="line">    Comparable v = a[lo];</div><div class="line">    <span class="keyword">while</span> (<span class="keyword">true</span>)&#123;</div><div class="line">      <span class="keyword">while</span> (a[++i] &lt; v) <span class="keyword">if</span> (i == hi) <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">while</span> (a[--j] &gt; v) <span class="keyword">if</span> (j == lo) <span class="keyword">break</span>;</div><div class="line">      <span class="keyword">if</span> (i &gt;= j) <span class="keyword">break</span>;</div><div class="line">      exc(a,i,j);</div><div class="line">    &#125;</div><div class="line">    exc(a,lo,j);</div><div class="line">    <span class="keyword">return</span> j;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">  <span class="function"><span class="keyword">void</span> <span class="title">exc</span> <span class="params">(Comparable[] a, <span class="keyword">int</span> i, <span class="keyword">int</span> j)</span></span>&#123;</div><div class="line">    Comparable t = a[i];</div><div class="line">    a[i] = a[j];</div><div class="line">    a[j] = t;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2083,7 +2129,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
