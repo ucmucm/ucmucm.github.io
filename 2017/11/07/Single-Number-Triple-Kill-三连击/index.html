@@ -94,7 +94,7 @@
 <meta property="og:url" content="ucmmm.cc/2017/11/07/Single-Number-Triple-Kill-三连击/index.html">
 <meta property="og:site_name" content="Not A Big Deal">
 <meta property="og:description" content="被Leetcode上面的Single Number上面的骚操作震惊到了，尤其是2和3，简直神一般的脑洞和操作。 先放上原题 Single Number Single Number 2 Single Number 3 Single Number: Given an array of integers, every element appears twice except for one. Find">
-<meta property="og:updated_time" content="2017-11-08T04:26:01.000Z">
+<meta property="og:updated_time" content="2017-11-23T17:57:42.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Single Number Triple Kill 三连击">
 <meta name="twitter:description" content="被Leetcode上面的Single Number上面的骚操作震惊到了，尤其是2和3，简直神一般的脑洞和操作。 先放上原题 Single Number Single Number 2 Single Number 3 Single Number: Given an array of integers, every element appears twice except for one. Find">
@@ -440,7 +440,7 @@
 <p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
 </blockquote>
 <p>这道题没什么好说的，一路XOR到底直接搞定。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;   </div><div class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++) </div><div class="line">        n ^= nums[i];</div><div class="line">    <span class="keyword">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;   </div><div class="line">    <span class="keyword">int</span> n = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;nums.length; i++)</div><div class="line">        n ^= nums[i];</div><div class="line">    <span class="keyword">return</span> n;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h5 id="Single-Number-II"><a href="#Single-Number-II" class="headerlink" title="Single Number II:"></a>Single Number II:</h5><blockquote>
 <p>Given an array of integers, every element appears <em>three</em> times except for one, which appears exactly once. Find that single one.</p>
 <p><strong>Note:</strong><br>Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?</p>
@@ -476,6 +476,7 @@
 <p>b需要根据a来判断是否变化，而a则根据c来判断是否清零，而c则需要a和b都为1才能变为1。</p>
 <p>每次只需要更新a,b,c的值，可写出代码如下：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">singleNumber</span><span class="params">(<span class="keyword">int</span> A[], <span class="keyword">int</span> n)</span> </span>&#123;</div><div class="line">	<span class="keyword">int</span> na = <span class="number">0</span>, nb = <span class="number">0</span>, nc = <span class="number">0</span>;</div><div class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</div><div class="line">		nb = nb ^ (A[i] &amp; na);</div><div class="line">		na = (na ^ A[i]) &amp; ~nc;</div><div class="line">		nc = nc ^ (A[i] &amp; ~na &amp; ~nb);</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">return</span> na &amp; ~nb &amp; ~nc;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>想写的太长了有点偷懒，还有第三题<br>未完待续</p>
 
       
     </div>
