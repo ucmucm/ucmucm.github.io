@@ -310,6 +310,179 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2019/05/12/Spring的小坑/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Ucm">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Not A Big Deal">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/05/12/Spring的小坑/" itemprop="url">
+                  Spring的小坑
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-12T22:44:00-04:00">
+                2019-05-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Spring/" itemprop="url" rel="index">
+                    <span itemprop="name">Spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            <!--noindex-->
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/12/Spring的小坑/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2019/05/12/Spring的小坑/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+              <!--/noindex-->
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这几天被奇怪的bug搞的头大，技术宅一开始都不知道发生了啥，后来我们合力搞明白了root cause</p>
+<p>先放上Exception:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">[junit] Testcase:</div><div class="line">testDependencyExceptionHandler(com.amazon.calypso.document.tools.webapp.controller.SignatureHelperControllerTest):    Caused an ERROR</div><div class="line">    [junit] Could not initialize class com.amazon.calypso.document.tools.webapp.util.LdapGroupControl$$EnhancerByMockitoWithCGLIB$$2918b0e4</div><div class="line">    [junit] java.lang.NoClassDefFoundError: Could not initialize class com.amazon.calypso.document.tools.webapp.util.LdapGroupControl$$EnhancerByMockitoWithCGLIB$$2918b0e4</div><div class="line">    [junit]     at java.lang.reflect.Constructor.newInstance(Constructor.java:423)</div><div class="line">    [junit]     at org.objenesis.instantiator.sun.SunReflectionFactoryInstantiator.newInstance(SunReflectionFactoryInstantiator.java:45)</div><div class="line">    [junit]     at org.objenesis.ObjenesisBase.newInstance(ObjenesisBase.java:73)</div><div class="line">    [junit]     at org.mockito.internal.creation.instance.ObjenesisInstantiator.newInstance(ObjenesisInstantiator.java:14)</div><div class="line">    [junit]     at org.powermock.api.mockito.repackaged.ClassImposterizer.createProxy(ClassImposterizer.java:143)</div><div class="line">    [junit]     at org.powermock.api.mockito.repackaged.ClassImposterizer.imposterise(ClassImposterizer.java:58)</div><div class="line">    [junit]     at org.powermock.api.mockito.repackaged.ClassImposterizer.imposterise(ClassImposterizer.java:49)</div><div class="line">    [junit]     at org.powermock.api.mockito.repackaged.CglibMockMaker.createMock(CglibMockMaker.java:24)</div><div class="line">    [junit]     at org.powermock.api.mockito.internal.mockmaker.PowerMockMaker.createMock(PowerMockMaker.java:46)</div><div class="line">    [junit]     at org.mockito.internal.util.MockUtil.createMock(MockUtil.java:33)</div><div class="line">    [junit]     at org.mockito.internal.MockitoCore.mock(MockitoCore.java:59)</div><div class="line">    [junit]     at org.mockito.Mockito.mock(Mockito.java:1285)</div><div class="line">    [junit]     at org.mockito.internal.configuration.MockAnnotationProcessor.process(MockAnnotationProcessor.java:33)</div><div class="line">    [junit]     at org.mockito.internal.configuration.MockAnnotationProcessor.process(MockAnnotationProcessor.java:16)</div><div class="line">    [junit]     at org.mockito.internal.configuration.DefaultAnnotationEngine.createMockFor(DefaultAnnotationEngine.java:43)</div><div class="line">    [junit]     at org.mockito.internal.configuration.DefaultAnnotationEngine.process(DefaultAnnotationEngine.java:66)</div><div class="line">    [junit]     at org.mockito.internal.configuration.InjectingAnnotationEngine.processIndependentAnnotations(InjectingAnnotationEngine.java:71)</div><div class="line">    [junit]     at org.mockito.internal.configuration.InjectingAnnotationEngine.process(InjectingAnnotationEngine.java:55)</div><div class="line">    [junit]     at org.mockito.MockitoAnnotations.initMocks(MockitoAnnotations.java:108)</div><div class="line">    [junit]     at com.amazon.calypso.document.tools.webapp.controller.SignatureHelperControllerTest.setup(SignatureHelperControllerTest.java:56)</div></pre></td></tr></table></figure>
+<p>看起来是Mockito的问题，由于我们package用到了PowerMock 1.6.3（技术宅说他也不知道为啥用这个，他说应该找时间refactor去掉这个），不兼容Mockito 2.x，所以我们现在还在用Mockito 1.x，我一直以为bug是因为我引入的新package用到了Mockito 2.0的新特性，所以不兼容，于是我陷入了两难的境地。</p>
+<p>不过！！在我看了个sage还是StackOverflow说他的controller和service不能一起跑unit test之后，我仿佛有了点思路，仔细研究了一下LdapGroupControl的class，突然发现有可能是我在其中用到了</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="keyword">private</span> String s1 = AppConfig.findString(<span class="string">"aa.bb.cc"</span>);</div><div class="line"><span class="keyword">final</span> <span class="keyword">private</span> String s2 = AppConfig.findString(<span class="string">"aa.bb.dd"</span>);</div></pre></td></tr></table></figure>
+<p>然而这些个controller的unit test并没有initialize AppConfig，所以找不到这些String来初始化，给技术宅一说，技术宅觉得有可能，于是我就改成了@Value形式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;aa.bb.cc&#125;"</span>)</div><div class="line"><span class="keyword">private</span> String s1;</div><div class="line"></div><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;aa.bb.dd&#125;"</span>)</div><div class="line"><span class="keyword">private</span> String s2;</div></pre></td></tr></table></figure>
+<p>恩成功了！！！不报那个错误了！！！！</p>
+<p>对的 报了另外一个错误 :)</p>
+<p>还原一下当时的大概代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;aa.bb.cc&#125;"</span>)</div><div class="line"><span class="keyword">private</span> String s1;</div><div class="line"></div><div class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;aa.bb.dd&#125;"</span>)</div><div class="line"><span class="keyword">private</span> String s2;</div><div class="line"></div><div class="line"><span class="keyword">final</span> <span class="keyword">private</span> Map&lt;EnumA, String&gt; map = ImmutableMap.of(A.X, s1, A.Y, s2);</div></pre></td></tr></table></figure>
+<p>这个map疯狂报错，说映射结果是A.X = null。于是又一顿找原因为什么。我一度怀疑是我的@Value没有配置好。</p>
+<p>疯狂操作疯狂试验…</p>
+<p>疯狂操作疯狂试验…</p>
+<p>疯狂操作疯狂试验…</p>
+<p>疯狂操作疯狂试验…</p>
+<p>结果最后还是在StackOverflow搜到了原因…有人把@Value标记的值加在了Constructor里，导致变量值为null，回答是Constructor的加载发生在Spring inject之前，所以会为null。恍然大悟，但是@PostConstruct annotation只适用于method level，对于attribute不适用，于是我直接把这个map放到了我需要用的method里面。。</p>
+<p>解决了，build成功了，真是一堆坑。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/11/07/Single-Number-Triple-Kill-三连击/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -522,7 +695,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/09/16/Google-OA(Flower)/">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/09/15/Google-OA(Flower)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ucm">
@@ -544,7 +717,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/09/16/Google-OA(Flower)/" itemprop="url">
+                <a class="post-title-link" href="/2017/09/15/Google-OA(Flower)/" itemprop="url">
                   Google-OA(Flower)
                 </a>
               
@@ -614,8 +787,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/16/Google-OA(Flower)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/09/16/Google-OA(Flower)/" itemprop="commentsCount"></span>
+                <a href="/2017/09/15/Google-OA(Flower)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/09/15/Google-OA(Flower)/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -691,7 +864,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/09/16/Google-OA(HH:MM)/">
+    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/09/15/Google-OA(HH:MM)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Ucm">
@@ -713,7 +886,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/09/16/Google-OA(HH:MM)/" itemprop="url">
+                <a class="post-title-link" href="/2017/09/15/Google-OA(HH:MM)/" itemprop="url">
                   Google OA(HH:MM)
                 </a>
               
@@ -783,8 +956,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/09/16/Google-OA(HH:MM)/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/09/16/Google-OA(HH:MM)/" itemprop="commentsCount"></span>
+                <a href="/2017/09/15/Google-OA(HH:MM)/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count hc-comment-count" data-xid="2017/09/15/Google-OA(HH:MM)/" itemprop="commentsCount"></span>
                 </a>
               </span>
               <!--/noindex-->
@@ -1910,177 +2083,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="ucmmm.cc/2017/05/19/Machine Learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Ucm">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/uploads/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Not A Big Deal">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/05/19/Machine Learning/" itemprop="url">
-                  Couresa Machine Learning Notes
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-19T00:21:00-04:00">
-                2017-05-19
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/Notes/" itemprop="url" rel="index">
-                    <span itemprop="name">Notes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-            <!--noindex-->
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/19/Machine Learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count hc-comment-count" data-xid="2017/05/19/Machine Learning/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-              <!--/noindex-->
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h3><h4 id="Supervised-Learning"><a href="#Supervised-Learning" class="headerlink" title="Supervised Learning"></a>Supervised Learning</h4><p>In supervised learning, we are given a data set and already know what our correct output should look like, having the idea that there is a relationship between the input and the output.</p>
-<h5 id="Regression-problem"><a href="#Regression-problem" class="headerlink" title="Regression problem"></a>Regression problem</h5><p>we are trying to predict results within a continuous output, meaning that we are trying to map input variables to some continuous function.</p>
-<h5 id="classification-problem"><a href="#classification-problem" class="headerlink" title="classification problem"></a>classification problem</h5><p>we are instead trying to predict results in a discrete output. In other words, we are trying to map input variables into discrete categories.</p>
-<h4 id="Unsupervised-Learning"><a href="#Unsupervised-Learning" class="headerlink" title="Unsupervised Learning"></a>Unsupervised Learning</h4><p>Unsupervised learning allows us to approach problems with little or no idea what our results should look like. We can derive structure from data where we don’t necessarily know the effect of the variables.</p>
-<p>We can derive this structure by clustering the data based on relationships among the variables in the data.</p>
-<p>With unsupervised learning there is no feedback based on the prediction result</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2130,7 +2132,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
@@ -2141,7 +2143,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">categories</span>
               </a>
             </div>
@@ -2152,7 +2154,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">18</span>
                 <span class="site-state-item-name">tags</span>
               </a>
             </div>
@@ -2222,8 +2224,8 @@
       <div class="footer-inner">
         <div class="copyright" >
   
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  &copy;  2017 - 
+  <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
